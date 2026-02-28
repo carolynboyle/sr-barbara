@@ -1,0 +1,27 @@
+services:
+  db:
+    image: docker.io/postgres:15
+    environment:
+      POSTGRES_DB: sr_barbara
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: srbarbaradb
+    volumes:
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+      - postgres_data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      DB_HOST: db
+      DB_NAME: sr_barbara
+      DB_USER: postgres
+      DB_PASSWORD: srbarbaradb
+    depends_on:
+      - db
+    links:
+      - db
+
+volumes:
+  postgres_data:

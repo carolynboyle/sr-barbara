@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sr. Barbara's Class</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Sr. Barbara's Class</h1>
+        <p>Reed-Kellogg Sentence Diagramming</p>
+    </header>
+
+    <main>
+        <div id="controls">
+            <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+            <button id="new-sentence">New Sentence</button>
+        </div>
+
+        <div id="sentence-display">
+            <p id="sentence-text">Click "New Sentence" to begin...</p>
+        </div>
+
+        <div id="diagram-area">
+            <!-- diagram will be drawn here -->
+        </div>
+
+        <button id="solve">Show Solution</button>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+[project]
+name = "sr-barbara"
+version = "0.1.0"
+description = "A Reed-Kellogg sentence diagramming web game"
+requires-python = ">=3.10"
+dependencies = [
+    "flask",
+    "psycopg2-binary",
+    "python-dotenv"
+]
+
+[project.urls]
+Homepage = "https://github.com/carolynboyle/sr-barbara"

@@ -1,0 +1,38 @@
+erDiagram
+    difficulty_levels {
+        int id PK
+        varchar level
+    }
+
+    sentences {
+        int id PK
+        int difficulty_id FK
+        timestamp created_at
+    }
+
+    parts_of_speech {
+        int id PK
+        varchar name
+        varchar description
+    }
+
+    sentence_parts {
+        int id PK
+        int sentence_id FK
+        int part_of_speech_id FK
+        int position
+    }
+
+    sentence_tokens {
+        int id PK
+        int sentence_part_id FK
+        int part_of_speech_id FK
+        varchar token
+        int position
+    }
+
+    difficulty_levels ||--o{ sentences : "has"
+    sentences ||--|{ sentence_parts : "contains"
+    parts_of_speech ||--o{ sentence_parts : "classifies"
+    sentence_parts ||--|{ sentence_tokens : "contains"
+    parts_of_speech ||--o{ sentence_tokens : "classifies"
