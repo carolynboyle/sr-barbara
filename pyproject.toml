@@ -9,5 +9,9 @@ dependencies = [
     "python-dotenv"
 ]
 
+[tool.setuptools]
+py-modules = []
+packages = []
+
 [project.urls]
 Homepage = "https://github.com/carolynboyle/sr-barbara"
