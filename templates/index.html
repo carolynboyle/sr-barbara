@@ -15,6 +15,7 @@
     <main>
         <div id="controls">
             <select id="difficulty">
+                <option value="any">★ Any</option>
                 <option value="easy">Easy</option>
                 <option value="medium" selected>Medium</option>
                 <option value="hard">Hard</option>
@@ -24,6 +25,18 @@
 
         <div id="sentence-display">
             <p id="sentence-text">Click "New Sentence" to begin...</p>
+        </div>
+
+        <!-- Part-of-speech popup: hidden until a word is clicked -->
+        <div id="pos-popup" class="hidden">
+            <p id="popup-prompt">What phrase type does <strong id="popup-word"></strong> belong to?</p>
+            <div id="popup-choices"></div>
+            <button id="popup-cancel">Never mind</button>
+        </div>
+
+        <!-- Sr. Barbara feedback line -->
+        <div id="sr-barbara-feedback" class="hidden">
+            <span id="feedback-text"></span>
         </div>
 
         <div id="diagram-area">

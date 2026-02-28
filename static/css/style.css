@@ -43,12 +43,13 @@ header p {
     border-radius: 4px;
     margin-bottom: 20px;
     font-size: 1.2em;
+    line-height: 2;        /* room for the spans to breathe */
 }
 
 /* Chalkboard styling for the diagram area */
 #diagram-area {
     background: #2a4a3a;
-    background-image: 
+    background-image:
         linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
     background-size: 20px 20px;
@@ -57,7 +58,7 @@ header p {
     border-radius: 2px;
     min-height: 240px;
     margin-bottom: 20px;
-    box-shadow: 
+    box-shadow:
         inset 0 0 30px rgba(0,0,0,0.3),
         0 4px 8px rgba(0,0,0,0.2);
 }
@@ -93,4 +94,124 @@ select {
     background: white;
     color: #2c2c2c;
     border: 1px solid #8b7355;
+}
+
+/* -------------------------------------------------------------------------
+   Clickable word tokens in the sentence display
+   ------------------------------------------------------------------------- */
+
+.word-token {
+    display: inline-block;
+    padding: 2px 6px;
+    margin: 0 2px;
+    border-radius: 3px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.word-token:hover {
+    background: #e8dfd0;
+    border-bottom-color: #8b7355;
+}
+
+/* Already correctly identified — soft green, no longer clickable */
+.word-token.correct {
+    background: #d4edda;
+    border-bottom-color: #5a9e6f;
+    cursor: default;
+    color: #2c5f3a;
+}
+
+/* Just got it wrong — brief red flash, fades via JS timeout */
+.word-token.wrong {
+    background: #fde8e8;
+    border-bottom-color: #c0392b;
+}
+
+/* -------------------------------------------------------------------------
+   Part-of-speech popup
+   ------------------------------------------------------------------------- */
+
+#pos-popup {
+    background: #fffdf7;
+    border: 1px solid #8b7355;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+#popup-prompt {
+    margin-bottom: 12px;
+    font-size: 1em;
+    color: #4a3728;
+}
+
+#popup-choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+/* Choice buttons inherit the base button style but get role colors on hover */
+.pos-choice {
+    font-size: 0.9em;
+    padding: 6px 14px;
+    background: #6b5744;
+    text-transform: capitalize;
+}
+
+.pos-choice:hover {
+    background: #4a3728;
+}
+
+#popup-cancel {
+    font-size: 0.85em;
+    background: transparent;
+    color: #8b7355;
+    border: 1px solid #8b7355;
+    padding: 4px 12px;
+}
+
+#popup-cancel:hover {
+    background: #f0e8d8;
+    color: #4a3728;
+}
+
+/* -------------------------------------------------------------------------
+   Sr. Barbara feedback bar
+   ------------------------------------------------------------------------- */
+
+#sr-barbara-feedback {
+    padding: 10px 16px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    font-style: italic;
+    font-size: 0.95em;
+    border-left: 4px solid #8b7355;
+    background: #fdf6ec;
+    color: #4a3728;
+    transition: opacity 0.4s;
+}
+
+#sr-barbara-feedback.correct-feedback {
+    border-left-color: #5a9e6f;
+    background: #f0faf3;
+    color: #2c5f3a;
+}
+
+#sr-barbara-feedback.wrong-feedback {
+    border-left-color: #c0392b;
+    background: #fdf0f0;
+    color: #7a1e1e;
+}
+
+/* -------------------------------------------------------------------------
+   Shared utility
+   ------------------------------------------------------------------------- */
+
+.hidden {
+    display: none;
 }
