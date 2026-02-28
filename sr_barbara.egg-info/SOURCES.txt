@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+sr_barbara.egg-info/PKG-INFO
+sr_barbara.egg-info/SOURCES.txt
+sr_barbara.egg-info/dependency_links.txt
+sr_barbara.egg-info/requires.txt
+sr_barbara.egg-info/top_level.txt

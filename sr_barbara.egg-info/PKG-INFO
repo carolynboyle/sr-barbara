@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: sr-barbara
+Version: 0.1.0
+Summary: A Reed-Kellogg sentence diagramming web game
+Project-URL: Homepage, https://github.com/carolynboyle/sr-barbara
+Requires-Python: >=3.10
+License-File: LICENSE
+Requires-Dist: flask
+Requires-Dist: psycopg2-binary
+Requires-Dist: python-dotenv
+Dynamic: license-file
