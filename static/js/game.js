@@ -402,8 +402,6 @@ document.addEventListener('DOMContentLoaded', () => {
         sentenceDisplay.appendChild(span);
         if (i < data.tokens.length - 1) {
             sentenceDisplay.appendChild(document.createTextNode(' '));
-        } else {
-            sentenceDisplay.appendChild(document.createTextNode('.'));
         }
     });
 }

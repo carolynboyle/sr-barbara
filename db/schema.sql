@@ -19,6 +19,7 @@ CREATE TABLE parts_of_speech (
 INSERT INTO parts_of_speech (name, description) VALUES
     ('subject', 'Who or what the sentence is about'),
     ('verb', 'The action or state of being'),
+    ('noun', 'Person, place, thing, or idea'),
     ('direct_object', 'Receives the action of the verb'),
     ('adjective', 'Modifies a noun or pronoun'),
     ('adverb', 'Modifies a verb, adjective, or other adverb'),

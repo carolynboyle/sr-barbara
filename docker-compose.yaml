@@ -1,12 +1,16 @@
 services:
   db:
     image: docker.io/postgres:15
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_DB: sr_barbara
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: srbarbaradb
     volumes:
-      - ./db/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+      - ./db/seed.sql:/docker-entrypoint-initdb.d/02-seed.sql
+      - ./db/sentences_view.sql:/docker-entrypoint-initdb.d/03-sentences_view.sql
       - postgres_data:/var/lib/postgresql/data
 
   app:
@@ -20,7 +24,12 @@ services:
       DB_PASSWORD: srbarbaradb
     depends_on:
       - db
-    links:
+
+  adminer:
+    image: adminer
+    ports:
+      - "8080:8080"
+    depends_on:
       - db
 
 volumes:
