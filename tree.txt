@@ -1,0 +1,41 @@
+.
+├── app.py
+├── compose.yaml
+├── db
+│   ├── dropall.sql
+│   ├── erDiagram.mmd
+│   ├── reset.sql
+│   ├── schema.md
+│   ├── schema.sql
+│   ├── seed.sql
+│   ├── sentence_view.sql
+│   └── truncate.sql
+├── Dockerfile
+├── docs
+│   ├── notes.md
+│   ├── roadmap 2026-02-27 22.41.39.md
+│   └── tree.txt
+├── LICENSE
+├── __pycache__
+│   └── app.cpython-311.pyc
+├── pyproject.toml
+├── README.md
+├── scripts
+├── sr_barbara.egg-info
+│   ├── dependency_links.txt
+│   ├── PKG-INFO
+│   ├── requires.txt
+│   ├── SOURCES.txt
+│   └── top_level.txt
+├── static
+│   ├── css
+│   │   └── style.css
+│   ├── images
+│   │   └── sr_barbara.png
+│   └── js
+│       └── game.js
+├── templates
+│   └── index.html
+└── tree.txt
+
+11 directories, 28 files

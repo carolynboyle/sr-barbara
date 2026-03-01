@@ -12,12 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const feedbackBar      = document.getElementById('sr-barbara-feedback');
     const feedbackText     = document.getElementById('feedback-text');
+    const legend           = document.getElementById('legend');
 
     let currentSentence  = null;
     let feedbackTimer    = null;
     let diagramSVG       = null;
     let drawnRoles       = new Set();
     let ppSlot           = 0;
+    let legendSeen       = new Set();  // tracks which POS are already in the legend
 
     // Per-sentence layout — calculated once in initDiagram, used by all drawPhrase calls
     let layout = {};
@@ -118,6 +120,51 @@ document.addEventListener('DOMContentLoaded', () => {
         "No, dear. Pay attention.",
     ];
 
+    // Part of speech colors - muted, chalkboard-friendly
+    const POS_COLORS = {
+        'article':     '#d4a574',
+        'noun':        '#e8d5a3',
+        'verb':        '#e8a5a5',
+        'adjective':   '#a5c4a5',
+        'adverb':      '#a5b8c4',
+        'preposition': '#c4a5c4'
+    };
+
+    const POS_LABELS = {
+        'article':     'Article',
+        'noun':        'Noun',
+        'verb':        'Verb',
+        'adjective':   'Adjective',
+        'adverb':      'Adverb',
+        'preposition': 'Preposition'
+    };
+
+    // -------------------------------------------------------------------------
+    // Legend - builds incrementally as phrases are placed
+    // -------------------------------------------------------------------------
+    function addToLegend(tokens) {
+        tokens.forEach(t => {
+            const pos = t.pos;
+            if (pos && POS_COLORS[pos] && !legendSeen.has(pos)) {
+                legendSeen.add(pos);
+                const item = document.createElement('div');
+                item.className = 'legend-item';
+
+                const swatch = document.createElement('span');
+                swatch.className = 'legend-swatch';
+                swatch.style.backgroundColor = POS_COLORS[pos];
+
+                const label = document.createElement('span');
+                label.className = 'legend-label';
+                label.textContent = POS_LABELS[pos] || pos;
+
+                item.appendChild(swatch);
+                item.appendChild(label);
+                legend.appendChild(item);
+            }
+        });
+    }
+
     function randomFrom(arr) {
         return arr[Math.floor(Math.random() * arr.length)];
     }
@@ -129,9 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
         clearTimeout(feedbackTimer);
         feedbackText.textContent = message;
         feedbackBar.className = type;
-        feedbackTimer = setTimeout(() => {
-            feedbackBar.classList.add('hidden');
-        }, 3000);
     }
 
     // -------------------------------------------------------------------------
@@ -147,12 +191,13 @@ document.addEventListener('DOMContentLoaded', () => {
         return svgEl('line', { x1, y1, x2, y2 });
     }
 
-    function svgText(text, x, y, anchor = 'middle') {
+    function svgText(text, x, y, anchor = 'middle', cssClass = '') {
         const t = svgEl('text', {
             x, y,
             'text-anchor': anchor,
             'font-size': layout.fontSize
         });
+        if (cssClass) t.setAttribute('class', cssClass);
         t.textContent = text;
         return t;
     }
@@ -164,6 +209,8 @@ document.addEventListener('DOMContentLoaded', () => {
         diagramArea.innerHTML = '';
         drawnRoles.clear();
         ppSlot = 0;
+        legend.innerHTML = '';
+        legendSeen.clear();
 
         // Calculate layout for this specific sentence
         layout = calculateLayout(currentSentence.tokens);
@@ -175,62 +222,86 @@ document.addEventListener('DOMContentLoaded', () => {
         diagramArea.appendChild(diagramSVG);
     }
 
-    function drawPhrase(key) {
-        if (!diagramSVG || drawnRoles.has(key)) return;
-        drawnRoles.add(key);
+    // -------------------------------------------------------------------------
+    // Draw tokens individually with their part-of-speech colors
+    // -------------------------------------------------------------------------
+    function drawTokensInSection(tokens, startX, endX, y) {
+        const sectionWidth = endX - startX;
+        const totalTextWidth = tokens.reduce((sum, t) => sum + estimateWidth(t.word, layout.fontSize), 0);
+        const totalGaps = tokens.length - 1;
+        const gapWidth = tokens.length > 1 ? Math.min(20, (sectionWidth - totalTextWidth) / (totalGaps + 2)) : 0;
 
-        const tokens  = currentSentence.tokens.filter(t => phraseKey(t) === key);
-        const words   = tokens.map(t => t.word).join(' ');
-        const role    = tokens[0].part_role;
+        // Center the whole group
+        const groupWidth = totalTextWidth + (totalGaps * gapWidth);
+        let x = startX + (sectionWidth - groupWidth) / 2;
 
-        const { divX, objX, hasObject } = layout;
-        const verbEndX = hasObject ? objX : END_X;
+        tokens.forEach((t, i) => {
+            const wordWidth = estimateWidth(t.word, layout.fontSize);
+            const textX = x + wordWidth / 2;
+            const cssClass = 'pos-' + (t.pos || 'default');
+            diagramSVG.appendChild(svgText(t.word, textX, y, 'middle', cssClass));
+            x += wordWidth + gapWidth;
+        });
+    }
 
-        switch (role) {
+ function drawPhrase(key) {
+    if (!diagramSVG || drawnRoles.has(key)) return;
+    drawnRoles.add(key);
 
-            case 'subject': {
-                diagramSVG.appendChild(svgLine(START_X, BASE_Y, divX, BASE_Y));
-                diagramSVG.appendChild(svgLine(divX, BASE_Y - 35, divX, BASE_Y + 10));
-                diagramSVG.appendChild(svgText(words, (START_X + divX) / 2, BASE_Y - 14));
-                break;
-            }
+    const tokens  = currentSentence.tokens.filter(t => phraseKey(t) === key);
+    const role    = tokens[0].part_role;
 
-            case 'verb': {
-                diagramSVG.appendChild(svgLine(divX, BASE_Y, verbEndX, BASE_Y));
-                diagramSVG.appendChild(svgText(words, (divX + verbEndX) / 2, BASE_Y - 14));
-                break;
-            }
+    const { divX, objX, hasObject } = layout;
+    const verbEndX = hasObject ? objX : END_X;
 
-            case 'direct_object': {
-                diagramSVG.appendChild(svgLine(objX, BASE_Y - 35, objX, BASE_Y));
-                diagramSVG.appendChild(svgLine(objX, BASE_Y, END_X, BASE_Y));
-                diagramSVG.appendChild(svgText(words, (objX + END_X) / 2, BASE_Y - 14));
-                break;
-            }
+    switch (role) {
 
-            case 'prepositional_phrase': {
-                const anchorX  = divX + 40 + (ppSlot * 130);
-                const anchorY  = BASE_Y;
-                const slantX   = anchorX + 20;
-                const slantY   = anchorY + 38;
-                const lineEndX = slantX + 100;
+        case 'subject': {
+            diagramSVG.appendChild(svgLine(START_X, BASE_Y, divX, BASE_Y));
+            diagramSVG.appendChild(svgLine(divX, BASE_Y - 35, divX, BASE_Y + 10));
+            drawTokensInSection(tokens, START_X, divX, BASE_Y - 14);
+            break;
+        }
 
-                diagramSVG.appendChild(svgLine(anchorX, anchorY, slantX, slantY));
-                diagramSVG.appendChild(svgLine(slantX, slantY, lineEndX, slantY));
-                diagramSVG.appendChild(svgText(words, (slantX + lineEndX) / 2, slantY - 6));
-                ppSlot++;
-                break;
-            }
+        case 'verb': {
+            diagramSVG.appendChild(svgLine(divX, BASE_Y, verbEndX, BASE_Y));
+            drawTokensInSection(tokens, divX, verbEndX, BASE_Y - 14);
+            break;
+        }
 
-            default: {
-                const fallbackY = BASE_Y + 60 + (drawnRoles.size * 30);
-                diagramSVG.appendChild(svgLine(START_X, fallbackY, END_X, fallbackY));
-                diagramSVG.appendChild(svgText(`${role}: ${words}`, (START_X + END_X) / 2, fallbackY - 6));
-                break;
-            }
+        case 'direct_object': {
+            diagramSVG.appendChild(svgLine(objX, BASE_Y - 35, objX, BASE_Y));
+            diagramSVG.appendChild(svgLine(objX, BASE_Y, END_X, BASE_Y));
+            drawTokensInSection(tokens, objX, END_X, BASE_Y - 14);
+            break;
+        }
+
+        case 'prepositional_phrase': {
+            const anchorX  = divX + 60;
+            const anchorY  = BASE_Y + (ppSlot * 45);
+            const slantX   = anchorX + 20;
+            const slantY   = anchorY + 38;
+            const ppWidth  = Math.max(120, tokens.map(t => t.word).join(' ').length * layout.fontSize * 0.6);
+            const lineEndX = slantX + ppWidth;
+
+            diagramSVG.appendChild(svgLine(anchorX, BASE_Y, anchorX, anchorY));
+            diagramSVG.appendChild(svgLine(anchorX, anchorY, slantX, slantY));
+            diagramSVG.appendChild(svgLine(slantX, slantY, lineEndX, slantY));
+            drawTokensInSection(tokens, slantX, lineEndX, slantY - 6);
+            ppSlot++;
+            break;
+        }
+
+        default: {
+            const fallbackY = BASE_Y + 60 + (drawnRoles.size * 30);
+            diagramSVG.appendChild(svgLine(START_X, fallbackY, END_X, fallbackY));
+            drawTokensInSection(tokens, START_X, END_X, fallbackY - 6);
+            break;
         }
     }
 
+    addToLegend(tokens);
+}
     // -------------------------------------------------------------------------
     // Popup
     // -------------------------------------------------------------------------
@@ -309,29 +380,33 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------------------------------------------------
     // Render sentence as clickable spans
     // -------------------------------------------------------------------------
+    
+
     function renderSentence(data) {
-        sentenceDisplay.innerHTML = '';
+    sentenceDisplay.innerHTML = '';
 
-        data.tokens.forEach((token, i) => {
-            const span = document.createElement('span');
-            span.className         = 'word-token';
-            span.dataset.tokenId      = token.id;
-            span.dataset.pos          = token.pos;
-            span.dataset.partRole     = token.part_role;
-            span.dataset.partPosition = token.part_position;
-            span.textContent       = token.word;
+    data.tokens.forEach((token, i) => {
+        const span = document.createElement('span');
+        span.className         = 'word-token';
+        span.dataset.tokenId      = token.id;
+        span.dataset.pos          = token.pos;
+        span.dataset.partRole     = token.part_role;
+        span.dataset.partPosition = token.part_position;
+        span.textContent       = token.word;
 
-            span.addEventListener('click', () => {
-                if (span.classList.contains('correct')) return;
-                showPopup(span, token);
-            });
-
-            sentenceDisplay.appendChild(span);
-            if (i < data.tokens.length - 1) {
-                sentenceDisplay.appendChild(document.createTextNode(' '));
-            }
+        span.addEventListener('click', () => {
+            if (span.classList.contains('correct')) return;
+            showPopup(span, token);
         });
-    }
+
+        sentenceDisplay.appendChild(span);
+        if (i < data.tokens.length - 1) {
+            sentenceDisplay.appendChild(document.createTextNode(' '));
+        } else {
+            sentenceDisplay.appendChild(document.createTextNode('.'));
+        }
+    });
+}
 
     // -------------------------------------------------------------------------
     // Fetch sentence

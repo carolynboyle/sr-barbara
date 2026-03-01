@@ -1,9 +1,24 @@
 -- Sr. Barbara's Class — seed.sql
 -- All sentence data. Run after schema.sql on a clean database.
 -- Run with: psql -U postgres -d sr_barbara -f db/seed.sql
+--
+-- Sentences:
+--   Easy   (1): 1 Birds fly.
+--   Easy   (2): 2 The hungry cat meowed.
+--   Easy   (3): 3 The young baker made bread.
+--   Easy   (4): 9 Dogs bark.
+--   Easy   (5): 10 The sun shines.
+--   Medium (6): 4 Rain fell on the roof.
+--   Medium (7): 5 The old man slept soundly under the oak tree.
+--   Medium (8): 6 The mysterious box sat quietly in the corner of the attic.
+--   Medium (9): 11 The child reads books.
+--   Medium (10): 12 Birds sing in spring.
+--   Hard   (11): 13 She walked slowly through the quiet park.
+--   Hard   (12): 14 The students finished their work before noon.  [fixed]
+--   Hard   (13): 8  The teacher carried the books to the classroom. [replaced]
 
 -- -------------------------------------------------------
--- Helper: reference parts_of_speech by name
+-- EASY sentences
 -- -------------------------------------------------------
 
 -- SENTENCE 1 (easy): "Birds fly."
@@ -38,6 +53,29 @@ INSERT INTO sentence_tokens (sentence_part_id, part_of_speech_id, token, positio
     (5, (SELECT id FROM parts_of_speech WHERE name = 'subject'),       'baker', 3),
     (6, (SELECT id FROM parts_of_speech WHERE name = 'verb'),          'made',  1),
     (7, (SELECT id FROM parts_of_speech WHERE name = 'direct_object'), 'bread', 1);
+
+-- SENTENCE 9 (easy): "Dogs bark."
+INSERT INTO sentences (id, difficulty_id) VALUES (9, 1);
+INSERT INTO sentence_parts (id, sentence_id, part_of_speech_id, position) VALUES
+    (21, 9, (SELECT id FROM parts_of_speech WHERE name = 'subject'), 1),
+    (22, 9, (SELECT id FROM parts_of_speech WHERE name = 'verb'),    2);
+INSERT INTO sentence_tokens (sentence_part_id, part_of_speech_id, token, position) VALUES
+    (21, (SELECT id FROM parts_of_speech WHERE name = 'subject'), 'Dogs', 1),
+    (22, (SELECT id FROM parts_of_speech WHERE name = 'verb'),    'bark', 1);
+
+-- SENTENCE 10 (easy): "The sun shines."
+INSERT INTO sentences (id, difficulty_id) VALUES (10, 1);
+INSERT INTO sentence_parts (id, sentence_id, part_of_speech_id, position) VALUES
+    (23, 10, (SELECT id FROM parts_of_speech WHERE name = 'subject'), 1),
+    (24, 10, (SELECT id FROM parts_of_speech WHERE name = 'verb'),    2);
+INSERT INTO sentence_tokens (sentence_part_id, part_of_speech_id, token, position) VALUES
+    (23, (SELECT id FROM parts_of_speech WHERE name = 'subject'), 'The',    1),
+    (23, (SELECT id FROM parts_of_speech WHERE name = 'subject'), 'sun',    2),
+    (24, (SELECT id FROM parts_of_speech WHERE name = 'verb'),    'shines', 1);
+
+-- -------------------------------------------------------
+-- MEDIUM sentences
+-- -------------------------------------------------------
 
 -- SENTENCE 4 (medium): "Rain fell on the roof."
 INSERT INTO sentences (id, difficulty_id) VALUES (4, 2);
@@ -89,42 +127,6 @@ INSERT INTO sentence_tokens (sentence_part_id, part_of_speech_id, token, positio
     (17, (SELECT id FROM parts_of_speech WHERE name = 'prepositional_phrase'), 'the',        2),
     (17, (SELECT id FROM parts_of_speech WHERE name = 'prepositional_phrase'), 'attic',      3);
 
--- SENTENCE 8 (hard): "Thinking clearly is a skill that requires constant practice."
-INSERT INTO sentences (id, difficulty_id) VALUES (8, 3);
-INSERT INTO sentence_parts (id, sentence_id, part_of_speech_id, position) VALUES
-    (18, 8, (SELECT id FROM parts_of_speech WHERE name = 'subject'),       1),
-    (19, 8, (SELECT id FROM parts_of_speech WHERE name = 'verb'),          2),
-    (20, 8, (SELECT id FROM parts_of_speech WHERE name = 'direct_object'), 3);
-INSERT INTO sentence_tokens (sentence_part_id, part_of_speech_id, token, position) VALUES
-    (18, (SELECT id FROM parts_of_speech WHERE name = 'subject'),       'Thinking',  1),
-    (18, (SELECT id FROM parts_of_speech WHERE name = 'subject'),       'clearly',   2),
-    (19, (SELECT id FROM parts_of_speech WHERE name = 'verb'),          'is',        1),
-    (20, (SELECT id FROM parts_of_speech WHERE name = 'direct_object'), 'a',         1),
-    (20, (SELECT id FROM parts_of_speech WHERE name = 'direct_object'), 'skill',     2),
-    (20, (SELECT id FROM parts_of_speech WHERE name = 'direct_object'), 'that',      3),
-    (20, (SELECT id FROM parts_of_speech WHERE name = 'direct_object'), 'requires',  4),
-    (20, (SELECT id FROM parts_of_speech WHERE name = 'direct_object'), 'constant',  5),
-    (20, (SELECT id FROM parts_of_speech WHERE name = 'direct_object'), 'practice',  6);
-
--- SENTENCE 9 (easy): "Dogs bark."
-INSERT INTO sentences (id, difficulty_id) VALUES (9, 1);
-INSERT INTO sentence_parts (id, sentence_id, part_of_speech_id, position) VALUES
-    (21, 9, (SELECT id FROM parts_of_speech WHERE name = 'subject'), 1),
-    (22, 9, (SELECT id FROM parts_of_speech WHERE name = 'verb'),    2);
-INSERT INTO sentence_tokens (sentence_part_id, part_of_speech_id, token, position) VALUES
-    (21, (SELECT id FROM parts_of_speech WHERE name = 'subject'), 'Dogs',  1),
-    (22, (SELECT id FROM parts_of_speech WHERE name = 'verb'),    'bark.', 1);
-
--- SENTENCE 10 (easy): "The sun shines."
-INSERT INTO sentences (id, difficulty_id) VALUES (10, 1);
-INSERT INTO sentence_parts (id, sentence_id, part_of_speech_id, position) VALUES
-    (23, 10, (SELECT id FROM parts_of_speech WHERE name = 'subject'), 1),
-    (24, 10, (SELECT id FROM parts_of_speech WHERE name = 'verb'),    2);
-INSERT INTO sentence_tokens (sentence_part_id, part_of_speech_id, token, position) VALUES
-    (23, (SELECT id FROM parts_of_speech WHERE name = 'subject'), 'The',     1),
-    (23, (SELECT id FROM parts_of_speech WHERE name = 'subject'), 'sun',     2),
-    (24, (SELECT id FROM parts_of_speech WHERE name = 'verb'),    'shines.', 1);
-
 -- SENTENCE 11 (medium): "The child reads books."
 INSERT INTO sentences (id, difficulty_id) VALUES (11, 2);
 INSERT INTO sentence_parts (id, sentence_id, part_of_speech_id, position) VALUES
@@ -132,10 +134,10 @@ INSERT INTO sentence_parts (id, sentence_id, part_of_speech_id, position) VALUES
     (26, 11, (SELECT id FROM parts_of_speech WHERE name = 'verb'),          2),
     (27, 11, (SELECT id FROM parts_of_speech WHERE name = 'direct_object'), 3);
 INSERT INTO sentence_tokens (sentence_part_id, part_of_speech_id, token, position) VALUES
-    (25, (SELECT id FROM parts_of_speech WHERE name = 'subject'),       'The',    1),
-    (25, (SELECT id FROM parts_of_speech WHERE name = 'subject'),       'child',  2),
-    (26, (SELECT id FROM parts_of_speech WHERE name = 'verb'),          'reads',  1),
-    (27, (SELECT id FROM parts_of_speech WHERE name = 'direct_object'), 'books.', 1);
+    (25, (SELECT id FROM parts_of_speech WHERE name = 'subject'),       'The',   1),
+    (25, (SELECT id FROM parts_of_speech WHERE name = 'subject'),       'child', 2),
+    (26, (SELECT id FROM parts_of_speech WHERE name = 'verb'),          'reads', 1),
+    (27, (SELECT id FROM parts_of_speech WHERE name = 'direct_object'), 'books', 1);
 
 -- SENTENCE 12 (medium): "Birds sing in spring."
 INSERT INTO sentences (id, difficulty_id) VALUES (12, 2);
@@ -144,10 +146,14 @@ INSERT INTO sentence_parts (id, sentence_id, part_of_speech_id, position) VALUES
     (29, 12, (SELECT id FROM parts_of_speech WHERE name = 'verb'),                 2),
     (30, 12, (SELECT id FROM parts_of_speech WHERE name = 'prepositional_phrase'), 3);
 INSERT INTO sentence_tokens (sentence_part_id, part_of_speech_id, token, position) VALUES
-    (28, (SELECT id FROM parts_of_speech WHERE name = 'subject'),              'Birds',   1),
-    (29, (SELECT id FROM parts_of_speech WHERE name = 'verb'),                 'sing',    1),
-    (30, (SELECT id FROM parts_of_speech WHERE name = 'prepositional_phrase'), 'in',      1),
-    (30, (SELECT id FROM parts_of_speech WHERE name = 'prepositional_phrase'), 'spring.', 2);
+    (28, (SELECT id FROM parts_of_speech WHERE name = 'subject'),              'Birds',  1),
+    (29, (SELECT id FROM parts_of_speech WHERE name = 'verb'),                 'sing',   1),
+    (30, (SELECT id FROM parts_of_speech WHERE name = 'prepositional_phrase'), 'in',     1),
+    (30, (SELECT id FROM parts_of_speech WHERE name = 'prepositional_phrase'), 'spring', 2);
+
+-- -------------------------------------------------------
+-- HARD sentences
+-- -------------------------------------------------------
 
 -- SENTENCE 13 (hard): "She walked slowly through the quiet park."
 INSERT INTO sentences (id, difficulty_id) VALUES (13, 3);
@@ -162,9 +168,11 @@ INSERT INTO sentence_tokens (sentence_part_id, part_of_speech_id, token, positio
     (33, (SELECT id FROM parts_of_speech WHERE name = 'prepositional_phrase'), 'through', 1),
     (33, (SELECT id FROM parts_of_speech WHERE name = 'prepositional_phrase'), 'the',     2),
     (33, (SELECT id FROM parts_of_speech WHERE name = 'prepositional_phrase'), 'quiet',   3),
-    (33, (SELECT id FROM parts_of_speech WHERE name = 'prepositional_phrase'), 'park.',   4);
+    (33, (SELECT id FROM parts_of_speech WHERE name = 'prepositional_phrase'), 'park',    4);
 
--- SENTENCE 14 (hard): "The students finished their work before the bell rang."
+-- SENTENCE 14 (hard): "The students finished their work before noon."
+-- Fixed: replaced subordinate clause "before the bell rang" with
+-- the genuine prepositional phrase "before noon."
 INSERT INTO sentences (id, difficulty_id) VALUES (14, 3);
 INSERT INTO sentence_parts (id, sentence_id, part_of_speech_id, position) VALUES
     (34, 14, (SELECT id FROM parts_of_speech WHERE name = 'subject'),              1),
@@ -178,11 +186,30 @@ INSERT INTO sentence_tokens (sentence_part_id, part_of_speech_id, token, positio
     (36, (SELECT id FROM parts_of_speech WHERE name = 'direct_object'),        'their',    1),
     (36, (SELECT id FROM parts_of_speech WHERE name = 'direct_object'),        'work',     2),
     (37, (SELECT id FROM parts_of_speech WHERE name = 'prepositional_phrase'), 'before',   1),
-    (37, (SELECT id FROM parts_of_speech WHERE name = 'prepositional_phrase'), 'the',      2),
-    (37, (SELECT id FROM parts_of_speech WHERE name = 'prepositional_phrase'), 'bell',     3),
-    (37, (SELECT id FROM parts_of_speech WHERE name = 'prepositional_phrase'), 'rang.',    4);
+    (37, (SELECT id FROM parts_of_speech WHERE name = 'prepositional_phrase'), 'noon',     2);
 
+-- SENTENCE 8 (hard): "The teacher carried the books to the classroom."
+-- Replaced the original sentence 8 which had a relative clause
+-- that the renderer cannot handle.
+INSERT INTO sentences (id, difficulty_id) VALUES (8, 3);
+INSERT INTO sentence_parts (id, sentence_id, part_of_speech_id, position) VALUES
+    (18, 8, (SELECT id FROM parts_of_speech WHERE name = 'subject'),              1),
+    (19, 8, (SELECT id FROM parts_of_speech WHERE name = 'verb'),                 2),
+    (20, 8, (SELECT id FROM parts_of_speech WHERE name = 'direct_object'),        3),
+    (38, 8, (SELECT id FROM parts_of_speech WHERE name = 'prepositional_phrase'), 4);
+INSERT INTO sentence_tokens (sentence_part_id, part_of_speech_id, token, position) VALUES
+    (18, (SELECT id FROM parts_of_speech WHERE name = 'subject'),              'The',       1),
+    (18, (SELECT id FROM parts_of_speech WHERE name = 'subject'),              'teacher',   2),
+    (19, (SELECT id FROM parts_of_speech WHERE name = 'verb'),                 'carried',   1),
+    (20, (SELECT id FROM parts_of_speech WHERE name = 'direct_object'),        'the',       1),
+    (20, (SELECT id FROM parts_of_speech WHERE name = 'direct_object'),        'books',     2),
+    (38, (SELECT id FROM parts_of_speech WHERE name = 'prepositional_phrase'), 'to',        1),
+    (38, (SELECT id FROM parts_of_speech WHERE name = 'prepositional_phrase'), 'the',       2),
+    (38, (SELECT id FROM parts_of_speech WHERE name = 'prepositional_phrase'), 'classroom', 3);
+
+-- -------------------------------------------------------
 -- Reset sequences so future INSERTs don't collide with explicit IDs
+-- -------------------------------------------------------
 SELECT setval('sentences_id_seq',      (SELECT MAX(id) FROM sentences));
 SELECT setval('sentence_parts_id_seq', (SELECT MAX(id) FROM sentence_parts));
 SELECT setval('sentence_tokens_id_seq',(SELECT MAX(id) FROM sentence_tokens));

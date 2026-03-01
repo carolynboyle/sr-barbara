@@ -39,8 +39,17 @@
             <span id="feedback-text"></span>
         </div>
 
-        <div id="diagram-area">
-            <!-- diagram will be drawn here -->
+        <!-- Chalkboard + Sr. Barbara side by side -->
+        <div id="diagram-wrapper">
+            <div id="diagram-area">
+                <!-- diagram will be drawn here -->
+            </div>
+            <div id="sidebar">
+                <div id="legend"></div>
+                <img id="sr-barbara"
+                     src="{{ url_for('static', filename='images/sr_barbara.png') }}"
+                     alt="Sr. Barbara">
+            </div>
         </div>
 
         <button id="solve">Show Solution</button>

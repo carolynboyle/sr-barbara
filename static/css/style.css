@@ -215,3 +215,58 @@ select {
 .hidden {
     display: none;
 }
+#diagram-wrapper {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+#diagram-area {
+    flex: 1;
+    margin-bottom: 0;   /* wrapper handles the margin now */
+}
+
+#sr-barbara {
+    width: 130px;
+    flex-shrink: 0;
+    align-self: flex-end;
+    mix-blend-mode: multiply;
+}
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#legend {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 0.85em;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+}
+
+.legend-label {
+    color: #4a3728;
+}
+/* Part of speech colors on diagram */
+#diagram-area svg text.pos-article     { fill: #d4a574; }
+#diagram-area svg text.pos-noun        { fill: #e8d5a3; }
+#diagram-area svg text.pos-verb        { fill: #e8a5a5; }
+#diagram-area svg text.pos-adjective   { fill: #a5c4a5; }
+#diagram-area svg text.pos-adverb      { fill: #a5b8c4; }
+#diagram-area svg text.pos-preposition { fill: #c4a5c4; }
