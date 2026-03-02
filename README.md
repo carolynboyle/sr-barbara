@@ -47,6 +47,8 @@ docker compose up --build
 
 Adminer is bundled with the container for managing sentences and game data. No additional installation needed—just visit http://localhost:8080 after starting the container.
 
+For details on the database structure, see [schema.md](schema.md). For database utility scripts, see [queries.md](queries.md).
+
 ## Screenshots
 
 *Start of game*

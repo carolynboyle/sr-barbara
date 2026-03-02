@@ -16,14 +16,31 @@ Lookup table for sentence difficulty.
 | id | SERIAL PK | Primary key |
 | level | VARCHAR(10) | easy, medium, or hard |
 
+**Seed values:** easy, medium, hard
+
 ### parts_of_speech
 Lookup table for grammatical roles used in both sentence_parts and sentence_tokens.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | id | SERIAL PK | Primary key |
-| name | VARCHAR(50) | Grammatical role name (subject, verb, adjective, etc.) |
+| name | VARCHAR(50) | Grammatical role name |
 | description | TEXT | Plain English explanation of the role |
+
+**Seed values:**
+
+| name | description |
+|------|-------------|
+| subject | Who or what the sentence is about |
+| verb | The action or state of being |
+| noun | Person, place, thing, or idea |
+| direct_object | Receives the action of the verb |
+| adjective | Modifies a noun or pronoun |
+| adverb | Modifies a verb, adjective, or other adverb |
+| article | Definite or indefinite determiner |
+| preposition | Shows relationship between noun and rest of sentence |
+| prepositional_phrase | Preposition plus its object |
+| object_of_preposition | Noun or pronoun following a preposition |
 
 ### sentences
 Parent record for each sentence in the game. The full sentence text is
