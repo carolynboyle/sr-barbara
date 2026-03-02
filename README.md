@@ -1,81 +1,82 @@
-# Sr. Barbara's Class
+# 
+Sr. Barbara's Class
+
+***
 
 A web-based sentence diagramming game using the Reed-Kellogg method.
 
 ## The Story
 
+[](https://github.com/carolynboyle/sr-barbara/blob/main/README.md#the-story)
+
 In the 1970s, at St. Patrick's elementary school, Sr. Barbara drilled us for years on sentence diagramming. We parsed sentences into their grammatical bones—subject, predicate, modifiers hanging on their slanted lines, prepositional phrases branching below.
 
-What none of us realized at the time: Sr. Barbara was teaching computational thinking decades before that term existed. Breaking a sentence into its logical components, understanding how each piece relates to the whole, recognizing patterns and hierarchies—this *is* programming. The baseline of a Reed-Kellogg diagram is the skeleton of a parse tree.
+What none of us realized at the time: Sr. Barbara was teaching computational thinking decades before that term existed. Breaking a sentence into its logical components, understanding how each piece relates to the whole, recognizing patterns and hierarchies—this *is* programming. The baseline of a Reed-Kellogg diagram is the skeleton of a parse tree. 
 
-This game is a tribute to that teaching, and an attempt to revive a lost educational technique that quietly teaches the same analytical skills that programmers use every day.
+This game is a tribute to that teaching, and a way to implement a nearly-lost educational technique in an entertaining way, while quietly teaching the same analytical skills that programmers use every day. 
 
-## Learn the Rules Like a Pro
 
-> "There is a massive difference between a writer who omits punctuation because they don't know where it goes, and one who omits it to create a specific psychological effect."
+## Learning the Rules Makes Breaking Them Work
+
+[](https://github.com/carolynboyle/sr-barbara/blob/main/README.md#learn-the-rules-like-a-pro)
+
+> There is a massive difference between a writer who omits punctuation because they don't know where it goes, and one who omits it to create a specific psychological effect.
 
 Picasso learned to be an excellent portrait painter before he developed his own style. e.e. cummings mastered poetic forms before he did his thing. You have to be very good before you've earned the right to break the rules.
 
 Reed-Kellogg diagrams are the "skeleton test" for sentences. If you can put a sentence on a baseline—if the subject and verb connect—the sentence holds water. If not, it's word salad, not art.
 
-## How It Works
+## Gameplay
 
-Players are presented with sentences of varying difficulty. Click on words to identify their parts of speech, and watch as grammatical phrases animate into their correct positions on the Reed-Kellogg diagram. Sr. Barbara provides commentary along the way.
+[](https://github.com/carolynboyle/sr-barbara/blob/main/README.md#how-it-works)
 
-## Tech Stack
+Players are presented with sentences of varying difficulty. A button above the chalkboard allows selection of "Easy," "Medium," "Hard," and \* (any) levels.
 
-- **Backend:** Flask (Python)
-- **Database:** PostgreSQL
-- **Frontend:** Vanilla JavaScript with SVG diagram rendering
-- **Aesthetic:** Old-school chalkboard with chalk-style text
 
-## Prerequisites
+Players click on words to identify where they belong on the diagram. Sr. Barbara provides commentary along the way. Once a word lands on the diagram, a color-coded legend indicates which part of speech it is. 
 
-On a clean system, you'll need:
+A no-stress "Show Solution" button is also shown below the chalkboard.
 
-- **Python 3.10+**
-- **PostgreSQL** (server running, with credentials to create a database)
-- **pip** (usually included with Python)
+## **Running with Docker**
 
-## Running Locally
-
-```bash
-# Clone the repository
+```javascript
 git clone https://github.com/carolynboyle/sr-barbara.git
 cd sr-barbara
-
-# Set up Python environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -e .
-
-# Create the database and configure connection
-createdb sr_barbara
-# Create a .env file with your PostgreSQL credentials:
-#   DB_HOST=localhost
-#   DB_NAME=sr_barbara
-#   DB_USER=postgres
-#   DB_PASSWORD=yourpassword
-
-# Initialize the database
-psql -d sr_barbara -f schema.sql
-psql -d sr_barbara -f seed.sql
-
-# Run the application
-python app.py
+docker compose up --build
 ```
 
-Visit `http://localhost:5000` in your browser.
+*On some systems (e.g., Mac with Homebrew/OrbStack), use&#32;`docker-compose`&#32;instead.*
+
+**Access**
+
+- **Game:** [http://localhost:5000](http://localhost:5000)
+- **Database admin (Adminer):** [http://localhost:8080](http://localhost:8080)
+
+## **Database Admin**
+
+Adminer is bundled with the container for managing sentences and game data. No additional installation needed - just visit [http://localhost:8080](http://localhost:8080) after starting the container.
 
 ## Screenshots
 
-*Coming soon*
+|  |  |
+| --- | --- |
+| *Start of game* | *After Clicking "Show Solution"* |
+|  |  |
+| *After Clicking on a Word* | *Completed Diagram* |
+|  |  |
+|  |  |
+
+[](https://github.com/carolynboyle/sr-barbara/blob/main/README.md#screenshots)
 
 ## License
+
+[](https://github.com/carolynboyle/sr-barbara/blob/main/README.md#license)
 
 MIT
 
 ## Acknowledgments
+
+[](https://github.com/carolynboyle/sr-barbara/blob/main/README.md#acknowledgments)
 
 - Sr. Barbara, wherever you are
 - The Reed-Kellogg diagramming system, developed by Alonzo Reed and Brainerd Kellogg in 1877
