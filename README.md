@@ -61,9 +61,13 @@ Adminer is bundled with the container for managing sentences and game data. No a
 |  |  |
 | --- | --- |
 | *Start of game* | *After Clicking "Show Solution"* |
-|  |  |
+| <img width="881" height="596" alt="image" src="https://github.com/user-attachments/assets/b195dc14-5f1c-409a-a30c-2452488a7686" />
+ | <img width="1049" height="771" alt="image" src="https://github.com/user-attachments/assets/d276cc0e-9691-4675-9f0c-c8c5348fd2dd" />
+ |
 | *After Clicking on a Word* | *Completed Diagram* |
-|  |  |
+| <img width="1030" height="677" alt="image" src="https://github.com/user-attachments/assets/968b1309-eb2b-4c93-b342-cfb77707cd00" />
+ | <img width="1054" height="754" alt="image" src="https://github.com/user-attachments/assets/f5c79055-5ac1-465b-8078-b8bf1827d75a" />
+ |
 |  |  |
 
 [](https://github.com/carolynboyle/sr-barbara/blob/main/README.md#screenshots)
