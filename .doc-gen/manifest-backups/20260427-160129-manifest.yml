@@ -1,0 +1,35 @@
+# Generated: 2026-03-20 11:36:43
+# Project: /home/carolyn/projects/sr-barbara
+# Files: 29
+
+version: 1
+documents:
+- path: .gitignore
+- path: Dockerfile
+- path: LICENSE
+- path: README.md
+- path: app.py
+- path: db/dropall.sql
+- path: db/erDiagram.mmd
+- path: db/reset.sql
+- path: db/schema.md
+- path: db/schema.sql
+- path: db/seed.sql
+- path: db/sentences_view.sql
+- path: db/truncate.sql
+- path: docker-compose.yaml
+- path: docs/dev.to.md
+- path: docs/dev_submission.md
+- path: docs/queries.md
+- path: docs/roadmap 2026-02-27 22.41.39.md
+- path: pyproject.toml
+- path: scripts/run_local.sh
+- path: scripts/setup.py
+- path: sr_barbara.egg-info/PKG-INFO
+- path: sr_barbara.egg-info/SOURCES.txt
+- path: sr_barbara.egg-info/dependency_links.txt
+- path: sr_barbara.egg-info/requires.txt
+- path: sr_barbara.egg-info/top_level.txt
+- path: static/css/style.css
+- path: static/js/game.js
+- path: templates/index.html

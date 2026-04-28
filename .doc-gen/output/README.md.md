@@ -1,3 +1,10 @@
+# README.md
+
+**Path:** README.md
+**Syntax:** markdown
+**Generated:** 2026-04-27 16:01:34
+
+```markdown
 # Sr. Barbara's Class
 
 A web-based sentence diagramming game using the Reed-Kellogg method.
@@ -22,7 +29,7 @@ Reed-Kellogg diagrams are the "skeleton test" for sentences. If you can put a se
 
 ## Gameplay
 
-Players are presented with sentences of varying difficulty. A button above the chalkboard allows selection of "Easy," "Medium," "Hard," and ★ (any) levels.
+Players are presented with sentences of varying difficulty. A button above the chalkboard allows selection of "Easy," "Medium," "Hard," and * (any) levels.
 
 Players click on words to identify where they belong on the diagram. Sr. Barbara provides commentary along the way. Once a word lands on the diagram, a color-coded legend indicates which part of speech it is.
 
@@ -30,52 +37,24 @@ A no-stress "Show Solution" button is also shown below the chalkboard.
 
 ## Running with Docker
 
-### First-time setup
-
-Copy the example environment file and set a password:
-
 ```bash
-cp .env.example .env
-```
-
-Edit `.env` and replace `changeme` with a real password. This password is
-used by both the database and the Flask app — set it once here.
-
-### Start the game
-
-```bash
+git clone https://github.com/carolynboyle/sr-barbara.git
+cd sr-barbara
 docker compose up --build
 ```
 
-Visit **http://localhost:5000** to play.
-
 *On some systems (e.g., Mac with Homebrew/OrbStack), use `docker-compose` instead.*
 
-### Developer tools (Adminer)
+**Access**
 
-Adminer is a database admin UI — useful for inspecting and editing sentence
-data, not needed to play the game.
+- **Game:** http://localhost:5000
+- **Database admin (Adminer):** http://localhost:8080
 
-```bash
-cp .env.dev.example .env.dev
-# Edit .env.dev if needed (defaults work for local use)
-docker compose -f docker-compose.yaml -f docker-compose.dev.yml up
-```
+## Database Admin
 
-Visit **http://localhost:8080** for Adminer.
+Adminer is bundled with the container for managing sentences and game data. No additional installation needed—just visit http://localhost:8080 after starting the container.
 
-**Adminer login:**
-- Server: `db`
-- Username: value of `DB_USER` in your `.env` (default: `postgres`)
-- Password: value of `DB_PASSWORD` in your `.env`
-- Database: value of `DB_NAME` in your `.env` (default: `sr_barbara`)
-
-> **Note:** If you change `DB_PASSWORD` in `.env` after the first run,
-> you must update it inside the running Postgres container or destroy
-> and recreate the volume with `docker compose down -v`.
-
-For details on the database structure, see [db/schema.md](db/schema.md).
-For database utility scripts, see [docs/queries.md](docs/queries.md).
+For details on the database structure, see [schema.md](schema.md). For database utility scripts, see [queries.md](queries.md).
 
 ## Screenshots
 
@@ -104,3 +83,5 @@ MIT
 - Sr. Barbara, wherever you are
 - The Reed-Kellogg diagramming system, developed by Alonzo Reed and Brainerd Kellogg in 1877
 - Everyone who learned to parse before they learned to program
+
+```

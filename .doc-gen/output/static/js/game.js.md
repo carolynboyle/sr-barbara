@@ -1,3 +1,10 @@
+# game.js
+
+**Path:** static/js/game.js
+**Syntax:** javascript
+**Generated:** 2026-04-27 16:01:34
+
+```javascript
 document.addEventListener('DOMContentLoaded', () => {
     const sentenceDisplay  = document.getElementById('sentence-text');
     const newSentenceBtn   = document.getElementById('new-sentence');
@@ -277,9 +284,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         case 'prepositional_phrase': {
-            case 'prepositional_phrase': {
-            const anchorX  = divX + 60 + (ppSlot * 140);
-            const anchorY  = BASE_Y;
+            const anchorX  = divX + 60;
+            const anchorY  = BASE_Y + (ppSlot * 45);
             const slantX   = anchorX + 20;
             const slantY   = anchorY + 38;
             const ppWidth  = Math.max(120, tokens.map(t => t.word).join(' ').length * layout.fontSize * 0.6);
@@ -457,3 +463,5 @@ document.addEventListener('DOMContentLoaded', () => {
     newSentenceBtn.addEventListener('click', fetchSentence);
     difficultySelect.addEventListener('change', fetchSentence);
 });
+
+```

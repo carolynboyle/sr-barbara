@@ -1,17 +1,62 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+# Sr. Barbara's Class — project and scripts package
+#
+# The scripts in this package are developer tools for building and
+# maintaining the game. Players never install or run them.
+#
+# Install scripts for development:
+#   pip install -e scripts/
+#
+# Or install into the shared tools venv:
+#   /opt/venvs/tools/bin/pip install -e scripts/
+#
+# Entry points:
+#   srb-export   — export sentence data from Postgres to data/sentences.yaml
+#   srb-build    — build sr_barbara.html from sentences.yaml and source files
+
 [project]
-name = "sr-barbara"
+name = "sr_barbara_scripts"
 version = "0.1.0"
-description = "A Reed-Kellogg sentence diagramming web game"
-requires-python = ">=3.10"
+description = "Developer scripts for Sr. Barbara's Class"
+authors = [
+    { name = "Carolyn Boyle" }
+]
+readme = "README.md"
+requires-python = ">=3.11"
 dependencies = [
-    "flask",
-    "psycopg2-binary",
-    "python-dotenv"
+    "pyyaml>=6.0",
+    "psycopg2-binary>=2.9",
+    "python-dotenv>=1.0",
 ]
 
-[tool.setuptools]
-py-modules = []
-packages = []
+[project.scripts]
+srb-export = "sr_barbara_scripts.pg_export:main"
+srb-build  = "sr_barbara_scripts.build_slingcode:main"
 
-[project.urls]
-Homepage = "https://github.com/carolynboyle/sr-barbara"
+[tool.setuptools.packages.find]
+where = ["scripts/src"]
+include = ["sr_barbara_scripts*"]
+
+# =============================================================================
+# Version note
+# =============================================================================
+#
+# This version number is the single source of truth for the project version.
+# It is read by:
+#   fletcher    — generates manifest.fletch with this version
+#   setupkit    — compares against upstream manifest.fletch for update checks
+#
+# When cutting a release:
+#   1. Increment version here
+#   2. Commit and push
+#   3. GitHub Actions builds sr_barbara.html and cuts a GitHub Release
+#      tagged with this version
+#   4. The in-game update checker sees the new release via GitHub Releases API
+#
+# Version follows semantic versioning: MAJOR.MINOR.PATCH
+#   MAJOR — breaking schema changes or complete rewrites
+#   MINOR — new sentences, new grammar support, new features
+#   PATCH — bug fixes, documentation, build system changes
