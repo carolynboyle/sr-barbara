@@ -23,9 +23,10 @@ INSERT INTO parts_of_speech (name, description) VALUES
     ('direct_object', 'Receives the action of the verb'),
     ('adjective', 'Modifies a noun or pronoun'),
     ('adverb', 'Modifies a verb, adjective, or other adverb'),
-    ('article', 'Definite or indefinite determiner'),
+    ('determiner', 'Definite or indefinite determiner'),
     ('preposition', 'Shows relationship between noun and rest of sentence'),
     ('prepositional_phrase', 'Preposition plus its object'),
+    ('pronoun', 'Replaces a noun: she, he, they, it, him, her'),
     ('object_of_preposition', 'Noun or pronoun following a preposition');
 
 -- Parent sentence record

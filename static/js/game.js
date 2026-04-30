@@ -120,10 +120,11 @@ document.addEventListener('DOMContentLoaded', () => {
         "No, dear. Pay attention.",
     ];
 
-    // Part of speech colors - muted, chalkboard-friendly
+       // Part of speech colors - muted, chalkboard-friendly
     const POS_COLORS = {
-        'article':     '#d4a574',
-        'noun':        '#e8d5a3',
+        'determiner':  '#d4a574',
+        'noun':        '#c9a96e',
+        'pronoun':     '#e8d5a3',
         'verb':        '#e8a5a5',
         'adjective':   '#a5c4a5',
         'adverb':      '#a5b8c4',
@@ -131,8 +132,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const POS_LABELS = {
-        'article':     'Article',
+        'determiner':  'Determiner',
         'noun':        'Noun',
+        'pronoun':     'Pronoun',
         'verb':        'Verb',
         'adjective':   'Adjective',
         'adverb':      'Adverb',
@@ -276,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
             break;
         }
 
-        case 'prepositional_phrase': {
+      
             case 'prepositional_phrase': {
             const anchorX  = divX + 60 + (ppSlot * 140);
             const anchorY  = BASE_Y;
