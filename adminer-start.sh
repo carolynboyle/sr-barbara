@@ -22,7 +22,8 @@ fi
 
 # Merge env files — docker-compose on this machine only accepts one --env-file
 cat .env .env.dev > .env.combined
-
+# Remove stale adminer container if it exists
+docker rm -f adminer 2>/dev/null || true
 docker-compose --env-file .env.combined \
     -f docker-compose.yaml \
     -f docker-compose.dev.yml \

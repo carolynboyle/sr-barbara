@@ -51,4 +51,5 @@ services:
 
 networks:
   sr_barbara_net:
-    external: true
+    external:
+      name: sr-barbara_sr_barbara_net

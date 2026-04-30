@@ -213,6 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ppSlot = 0;
         legend.innerHTML = '';
         legendSeen.clear();
+        solveBtn.classList.remove('hidden');
 
         // Calculate layout for this specific sentence
         layout = calculateLayout(currentSentence.tokens);
@@ -227,6 +228,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------------------------------------------------
     // Draw tokens individually with their part-of-speech colors
     // -------------------------------------------------------------------------
+        // -------------------------------------------------------------------------
+    // Hide solve button when all phrases are drawn
+    // -------------------------------------------------------------------------
+  function checkCompletion() {
+        const allKeys = [...new Map(
+            currentSentence.tokens.map(t => [phraseKey(t), t])
+        ).keys()];
+        console.log('checkCompletion: allKeys=', allKeys, 'drawnRoles=', [...drawnRoles]);
+        if (allKeys.every(key => drawnRoles.has(key))) {
+            console.log('checkCompletion: hiding button');
+            solveBtn.classList.add('hidden');
+            console.log('checkCompletion: classList after add=', solveBtn.classList.toString());
+            showFeedback('Excellent work. The sentence is fully diagrammed.', 'correct-feedback');
+        } else {
+            console.log('checkCompletion: not complete yet');
+        }
+    }
+    // -------------------------------------------------------------------------
+    // Draw tokens individually with their part-of-speech colors
+    // -------------------------------------------------------------------------
+    
     function drawTokensInSection(tokens, startX, endX, y) {
         const sectionWidth = endX - startX;
         const totalTextWidth = tokens.reduce((sum, t) => sum + estimateWidth(t.word, layout.fontSize), 0);
@@ -354,6 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
             markPhraseCorrect(key);
             drawPhrase(key);
             showFeedback(randomFrom(PRAISE), 'correct-feedback');
+            checkCompletion();
         } else {
             const el = document.querySelector(`[data-token-id="${token.id}"]`);
             if (el) {
@@ -452,8 +475,9 @@ document.addEventListener('DOMContentLoaded', () => {
             markPhraseCorrect(key);
             drawPhrase(key);
         });
-
+        solveBtn.classList.add('hidden');
         showFeedback('There. Now you know what it looks like.', 'correct-feedback');
+        
     });
 
     newSentenceBtn.addEventListener('click', fetchSentence);
