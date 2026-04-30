@@ -231,20 +231,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // -------------------------------------------------------------------------
     // Hide solve button when all phrases are drawn
     // -------------------------------------------------------------------------
-  function checkCompletion() {
-        const allKeys = [...new Map(
-            currentSentence.tokens.map(t => [phraseKey(t), t])
-        ).keys()];
-        console.log('checkCompletion: allKeys=', allKeys, 'drawnRoles=', [...drawnRoles]);
-        if (allKeys.every(key => drawnRoles.has(key))) {
-            console.log('checkCompletion: hiding button');
-            solveBtn.classList.add('hidden');
-            console.log('checkCompletion: classList after add=', solveBtn.classList.toString());
-            showFeedback('Excellent work. The sentence is fully diagrammed.', 'correct-feedback');
-        } else {
-            console.log('checkCompletion: not complete yet');
-        }
+function checkCompletion() {
+    const allKeys = [...new Map(
+        currentSentence.tokens.map(t => [phraseKey(t), t])
+    ).keys()];
+    if (allKeys.every(key => drawnRoles.has(key))) {
+        solveBtn.classList.add('hidden');
+        showFeedback('Excellent work. The sentence is fully diagrammed.', 'correct-feedback');
     }
+}
     // -------------------------------------------------------------------------
     // Draw tokens individually with their part-of-speech colors
     // -------------------------------------------------------------------------
