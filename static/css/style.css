@@ -123,6 +123,12 @@ select {
     color: #2c5f3a;
 }
 
+/* All words in the phrase being considered — warm highlight */
+.word-token.phrase-highlight {
+    background: #f0e0c0;
+    border-bottom-color: #a07840;
+}
+
 /* Just got it wrong — brief red flash, fades via JS timeout */
 .word-token.wrong {
     background: #fde8e8;

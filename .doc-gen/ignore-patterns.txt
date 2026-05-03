@@ -11,6 +11,10 @@ __pycache__/
 __pycache__/
 *.pyc
 .env
+.env.dev
 archive/
 *.egg-info/
 tree
+
+# local archive for unused files
+.archive/

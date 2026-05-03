@@ -1,14 +1,22 @@
-# Generated: 2026-04-27 16:01:29
+# Generated: 2026-05-02 20:28:51
 # Project: /home/carolyn/projects/sr-barbara
-# Files: 29
+# Files: 64
 
 version: 1
 documents:
+- path: .env.dev.example
+- path: .env.example
 - path: .gitignore
+- path: .vscode/settings.json
 - path: Dockerfile
 - path: LICENSE
 - path: README.md
+- path: adminer-start.sh
+- path: adminer-stop.sh
 - path: app.py
+- path: data/queries.yaml
+- path: data/sentences.schema.json
+- path: data/sentences.yaml
 - path: db/dropall.sql
 - path: db/erDiagram.mmd
 - path: db/reset.sql
@@ -17,19 +25,46 @@ documents:
 - path: db/seed.sql
 - path: db/sentences_view.sql
 - path: db/truncate.sql
+- path: docker-compose.dev.yml
 - path: docker-compose.yaml
+- path: docs/changedocs/game-js-pp-fix.md
+- path: docs/changedocs/reorganize.sh
+- path: docs/changedocs/sr-barbara-article-to-determiner.md
+- path: docs/changedocs/sr-barbara-css-js-pos-update.md
+- path: docs/changedocs/sr-barbara-docker-changes.md
+- path: docs/changedocs/sr-barbara-docker-scripts.md
+- path: docs/changedocs/sr-barbara-main-scoping-fix.md
+- path: docs/changedocs/sr-barbara-module-split.md
+- path: docs/changedocs/sr-barbara-solve-btn-hide.md
+- path: docs/changedocs/sr-barbara-volume-mount.md
+- path: docs/design/handoff-2026-04-28.md
+- path: docs/design/handoff-2026-04-30.md
+- path: docs/design/handoff-2026-05-01.md
+- path: docs/design/roadmap.md
+- path: docs/design/sr-barbara-phrase-highlight.md
+- path: docs/design/sr-barbara-schema-analysis.md
 - path: docs/dev.to.md
 - path: docs/dev_submission.md
 - path: docs/queries.md
-- path: docs/roadmap 2026-02-27 22.41.39.md
 - path: pyproject.toml
-- path: scripts/run_local.sh
-- path: scripts/setup.py
-- path: sr_barbara.egg-info/PKG-INFO
-- path: sr_barbara.egg-info/SOURCES.txt
-- path: sr_barbara.egg-info/dependency_links.txt
-- path: sr_barbara.egg-info/requires.txt
-- path: sr_barbara.egg-info/top_level.txt
+- path: scripts/src/sr_barbara_scripts/__init__.py
+- path: scripts/src/sr_barbara_scripts/build_slingcode.py
+- path: scripts/src/sr_barbara_scripts/config.py
+- path: scripts/src/sr_barbara_scripts/pg_export.py
+- path: scripts/src/sr_barbara_scripts.egg-info/PKG-INFO
+- path: scripts/src/sr_barbara_scripts.egg-info/SOURCES.txt
+- path: scripts/src/sr_barbara_scripts.egg-info/dependency_links.txt
+- path: scripts/src/sr_barbara_scripts.egg-info/entry_points.txt
+- path: scripts/src/sr_barbara_scripts.egg-info/requires.txt
+- path: scripts/src/sr_barbara_scripts.egg-info/top_level.txt
+- path: sr_barbara.yaml
+- path: start.sh
 - path: static/css/style.css
-- path: static/js/game.js
+- path: static/js/config.js
+- path: static/js/data.js
+- path: static/js/layout.js
+- path: static/js/main.js
+- path: static/js/renderer.js
+- path: static/js/ui.js
+- path: stop.sh
 - path: templates/index.html

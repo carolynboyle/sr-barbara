@@ -53,6 +53,17 @@ function showPopup(tokenEl, token) {
     popupWord.textContent = token.word;
     popupChoices.innerHTML = '';
 
+    // Highlight all words in this phrase so the player sees what moves together
+    const role     = token.part_role;
+    const position = token.part_position;
+    document.querySelectorAll('.word-token').forEach(el => {
+        if (el.dataset.partRole === role &&
+            el.dataset.partPosition === String(position)) {
+            el.classList.add('phrase-highlight');
+        }
+    });
+
+    // --- everything below is unchanged ---
     const remainingTokens = currentSentence.tokens
         .filter(t => !drawnRoles.has(phraseKey(t)));
 
@@ -80,6 +91,8 @@ function showPopup(tokenEl, token) {
 function hidePopup() {
     posPopup.classList.add('hidden');
     popupChoices.innerHTML = '';
+    document.querySelectorAll('.word-token.phrase-highlight')
+        .forEach(el => el.classList.remove('phrase-highlight'));
 }
 
 // -----------------------------------------------------------------------------

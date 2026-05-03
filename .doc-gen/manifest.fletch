@@ -1,26 +1,42 @@
-# Generated: 2026-04-27 16:01:52
+# Generated: 2026-05-02 20:29:07
 # Repo: https://github.com/carolynboyle/sr-barbara
 # Branch: main
 # URL type: raw
 # Version: v0.1.0
-# Files: 29
+# Files: 64
 
 repo: https://github.com/carolynboyle/sr-barbara
 branch: main
 url_type: raw
-generated: '2026-04-27 16:01:52'
+generated: '2026-05-02 20:29:07'
 version: 0.1.0
 files:
+- path: .env.dev.example
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/.env.dev.example
+- path: .env.example
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/.env.example
 - path: .gitignore
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/.gitignore
+- path: .vscode/settings.json
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/.vscode/settings.json
 - path: Dockerfile
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/Dockerfile
 - path: LICENSE
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/LICENSE
 - path: README.md
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/README.md
+- path: adminer-start.sh
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/adminer-start.sh
+- path: adminer-stop.sh
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/adminer-stop.sh
 - path: app.py
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/app.py
+- path: data/queries.yaml
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/data/queries.yaml
+- path: data/sentences.schema.json
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/data/sentences.schema.json
+- path: data/sentences.yaml
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/data/sentences.yaml
 - path: db/dropall.sql
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/db/dropall.sql
 - path: db/erDiagram.mmd
@@ -37,36 +53,89 @@ files:
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/db/sentences_view.sql
 - path: db/truncate.sql
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/db/truncate.sql
+- path: docker-compose.dev.yml
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docker-compose.dev.yml
 - path: docker-compose.yaml
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docker-compose.yaml
+- path: docs/changedocs/game-js-pp-fix.md
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/changedocs/game-js-pp-fix.md
+- path: docs/changedocs/reorganize.sh
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/changedocs/reorganize.sh
+- path: docs/changedocs/sr-barbara-article-to-determiner.md
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/changedocs/sr-barbara-article-to-determiner.md
+- path: docs/changedocs/sr-barbara-css-js-pos-update.md
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/changedocs/sr-barbara-css-js-pos-update.md
+- path: docs/changedocs/sr-barbara-docker-changes.md
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/changedocs/sr-barbara-docker-changes.md
+- path: docs/changedocs/sr-barbara-docker-scripts.md
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/changedocs/sr-barbara-docker-scripts.md
+- path: docs/changedocs/sr-barbara-main-scoping-fix.md
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/changedocs/sr-barbara-main-scoping-fix.md
+- path: docs/changedocs/sr-barbara-module-split.md
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/changedocs/sr-barbara-module-split.md
+- path: docs/changedocs/sr-barbara-solve-btn-hide.md
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/changedocs/sr-barbara-solve-btn-hide.md
+- path: docs/changedocs/sr-barbara-volume-mount.md
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/changedocs/sr-barbara-volume-mount.md
+- path: docs/design/handoff-2026-04-28.md
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/design/handoff-2026-04-28.md
+- path: docs/design/handoff-2026-04-30.md
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/design/handoff-2026-04-30.md
+- path: docs/design/handoff-2026-05-01.md
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/design/handoff-2026-05-01.md
+- path: docs/design/roadmap.md
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/design/roadmap.md
+- path: docs/design/sr-barbara-phrase-highlight.md
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/design/sr-barbara-phrase-highlight.md
+- path: docs/design/sr-barbara-schema-analysis.md
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/design/sr-barbara-schema-analysis.md
 - path: docs/dev.to.md
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/dev.to.md
 - path: docs/dev_submission.md
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/dev_submission.md
 - path: docs/queries.md
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/queries.md
-- path: docs/roadmap 2026-02-27 22.41.39.md
-  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/roadmap
-    2026-02-27 22.41.39.md
 - path: pyproject.toml
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/pyproject.toml
-- path: scripts/run_local.sh
-  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/scripts/run_local.sh
-- path: scripts/setup.py
-  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/scripts/setup.py
-- path: sr_barbara.egg-info/PKG-INFO
-  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/sr_barbara.egg-info/PKG-INFO
-- path: sr_barbara.egg-info/SOURCES.txt
-  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/sr_barbara.egg-info/SOURCES.txt
-- path: sr_barbara.egg-info/dependency_links.txt
-  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/sr_barbara.egg-info/dependency_links.txt
-- path: sr_barbara.egg-info/requires.txt
-  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/sr_barbara.egg-info/requires.txt
-- path: sr_barbara.egg-info/top_level.txt
-  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/sr_barbara.egg-info/top_level.txt
+- path: scripts/src/sr_barbara_scripts/__init__.py
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/scripts/src/sr_barbara_scripts/__init__.py
+- path: scripts/src/sr_barbara_scripts/build_slingcode.py
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/scripts/src/sr_barbara_scripts/build_slingcode.py
+- path: scripts/src/sr_barbara_scripts/config.py
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/scripts/src/sr_barbara_scripts/config.py
+- path: scripts/src/sr_barbara_scripts/pg_export.py
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/scripts/src/sr_barbara_scripts/pg_export.py
+- path: scripts/src/sr_barbara_scripts.egg-info/PKG-INFO
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/scripts/src/sr_barbara_scripts.egg-info/PKG-INFO
+- path: scripts/src/sr_barbara_scripts.egg-info/SOURCES.txt
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/scripts/src/sr_barbara_scripts.egg-info/SOURCES.txt
+- path: scripts/src/sr_barbara_scripts.egg-info/dependency_links.txt
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/scripts/src/sr_barbara_scripts.egg-info/dependency_links.txt
+- path: scripts/src/sr_barbara_scripts.egg-info/entry_points.txt
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/scripts/src/sr_barbara_scripts.egg-info/entry_points.txt
+- path: scripts/src/sr_barbara_scripts.egg-info/requires.txt
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/scripts/src/sr_barbara_scripts.egg-info/requires.txt
+- path: scripts/src/sr_barbara_scripts.egg-info/top_level.txt
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/scripts/src/sr_barbara_scripts.egg-info/top_level.txt
+- path: sr_barbara.yaml
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/sr_barbara.yaml
+- path: start.sh
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/start.sh
 - path: static/css/style.css
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/static/css/style.css
-- path: static/js/game.js
-  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/static/js/game.js
+- path: static/js/config.js
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/static/js/config.js
+- path: static/js/data.js
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/static/js/data.js
+- path: static/js/layout.js
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/static/js/layout.js
+- path: static/js/main.js
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/static/js/main.js
+- path: static/js/renderer.js
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/static/js/renderer.js
+- path: static/js/ui.js
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/static/js/ui.js
+- path: stop.sh
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/stop.sh
 - path: templates/index.html
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/templates/index.html
