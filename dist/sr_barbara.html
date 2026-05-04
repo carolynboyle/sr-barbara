@@ -410,6 +410,22 @@ select {
     color: #e8e8e8;
     font-style: italic;
     text-align: center;
+    margin-bottom: 12px;
+}
+
+#help-panel p.help-footer {
+    margin-top: 8px;
+    font-style: normal;
+}
+
+#help-panel a {
+    color: #ffffff;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+#help-panel a:hover {
+    color: #ffffff;
 }
 
 #help-close {
@@ -497,7 +513,11 @@ select {
             <div id="help-panel">
                 <button id="help-close" title="Close">x</button>
                 <h2>How to Play</h2>
-                <p>Help goes here.</p>
+                <p>A sentence appears at the top of the chalkboard. Click any word to identify its grammatical role. Choose from the menu — Sr. Barbara will let you know how you're doing.</p>
+<p>As words land on the diagram, a color-coded legend builds on the left. Each color represents a part of speech.</p>
+<p>Use the difficulty selector to choose Easy, Medium, Hard, or ★ for any level. Click New Sentence to get a fresh one at any time.</p>
+<p>Stuck? The Show Solution button reveals the complete diagram. Sr. Barbara may have thoughts about that.</p>
+<p class="help-footer"><a href="https://github.com/carolynboyle/sr-barbara" target="_blank" rel="noopener">Read more on GitHub</a></p>
             </div>
         </div>
 
@@ -506,7 +526,7 @@ select {
 // Source of truth: data/game_config.yaml and pyproject.toml
 
 // Build version — used by the update checker
-const VERSION = "0.1.2";
+const VERSION = "0.1.3";
 
 // GitHub repo — used by the update checker
 const GITHUB_REPO = "carolynboyle/sr-barbara";

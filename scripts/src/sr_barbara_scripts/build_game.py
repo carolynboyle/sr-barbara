@@ -1,29 +1,52 @@
-# =============================================================================
-# Sr. Barbara's Class — build_game.py
-# Assembles dist/sr_barbara.html from source files.
-#
-# Usage:
-#   srb-build
-#
-# Reads:  sr_barbara.yaml (via ProjectConfig)
-#         data/game_config.yaml
-#         data/sentences.yaml
-#         templates/index.standalone.html
-#         static/css/style.css
-#         static/js/layout.js, renderer.js, ui.js, main.js
-#         static/images/sr_barbara.png
-#         pyproject.toml (version)
-# Writes: dist/sr_barbara.html
-# =============================================================================
-
+"""
+Assembles dist/sr_barbara.html from source files.
+Reads game config, sentences, and help content from YAML;
+inlines CSS, JS, and images into a single standalone HTML file.
+"""
 import base64
 import json
 import tomllib
 from pathlib import Path
-
 import yaml
-
 from sr_barbara_scripts.config import ProjectConfig
+
+
+# -----------------------------------------------------------------------------
+# HelpRenderer
+# Reads help.yaml and renders the #help-panel HTML fragment as a string.
+# -----------------------------------------------------------------------------
+
+class HelpRenderer:
+    """Renders the #help-panel HTML fragment from data/help.yaml."""
+
+    def __init__(self, config: ProjectConfig):
+        self._cfg  = config
+        self._data = self._load_help()
+
+    def _load_help(self) -> dict:
+        path = self._cfg.repo_root / self._cfg.paths['help_yaml']
+        with path.open(encoding='utf-8') as f:
+            return yaml.safe_load(f)
+
+    def render(self) -> str:
+        """Return the HTML fragment for #help-panel body content."""
+        help_cfg = self._data['help']
+        parts = []
+
+        for section in help_cfg.get('sections', []):
+            body = section.get('body', '').strip()
+            if body:
+                parts.append(f'<p>{body}</p>')
+
+        link = help_cfg.get('footer_link')
+        if link:
+            parts.append(
+                f'<p class="help-footer">'
+                f'<a href="{link["url"]}" target="_blank" rel="noopener">'
+                f'{link["text"]}</a></p>'
+            )
+
+        return '\n'.join(parts)
 
 
 # -----------------------------------------------------------------------------
@@ -35,7 +58,11 @@ from sr_barbara_scripts.config import ProjectConfig
 
 class ConfigRenderer:
     """Renders config.js content from game_config.yaml and pyproject.toml."""
-
+    @property
+    def version(self) -> str:
+        """Return the full version string read from pyproject.toml."""
+        return self._version
+    
     def __init__(self, config: ProjectConfig):
         self._cfg     = config
         self._game    = self._load_game_config()
@@ -48,6 +75,7 @@ class ConfigRenderer:
 
     def _read_full_version(self) -> str:
         """Read the full major.minor.patch version from pyproject.toml."""
+        
         toml_path = self._cfg.repo_root / 'pyproject.toml'
         with toml_path.open('rb') as f:
             data = tomllib.load(f)
@@ -198,6 +226,7 @@ class GameBuilder:
         self._cfg             = config
         self._config_renderer = ConfigRenderer(config)
         self._data_renderer   = DataRenderer(config)
+        self._help_renderer   = HelpRenderer(config)
 
     def _read(self, path: Path) -> str:
         return path.read_text(encoding='utf-8')
@@ -248,13 +277,12 @@ class GameBuilder:
         output = template
         output = output.replace('<!-- INLINE_CSS -->',     self._inline_css())
         output = output.replace('<!-- INLINE_SCRIPTS -->', self._inline_scripts())
+        output = output.replace('<!-- INLINE_HELP -->',    self._help_renderer.render())
         output = output.replace('{{ IMAGE_SRC }}',         self._inline_image())
-
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(output, encoding='utf-8')
-
         size_kb = output_path.stat().st_size / 1024
-        version = self._config_renderer._version
+        version = self._config_renderer.version
         print(f'Built {output_path} ({size_kb:.0f} KB) — version {version}')
 
 

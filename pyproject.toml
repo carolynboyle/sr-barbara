@@ -19,7 +19,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sr_barbara_scripts"
-version = "0.1.2"
+version = "0.1.3"
 description = "Developer scripts for Sr. Barbara's Class"
 authors = [
     { name = "Carolyn Boyle" }

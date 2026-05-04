@@ -15,6 +15,7 @@ paths:
   sentences_schema:    data/sentences.schema.json
   standalone_template: templates/index.standalone.html
   build_output:        dist/sr_barbara.html
+  help_yaml:           data/help.yaml
 
 database:
   env_file: .env

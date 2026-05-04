@@ -1,0 +1,37 @@
+# =============================================================================
+# Sr. Barbara's Class — help panel content
+# =============================================================================
+#
+# Rendered into #help-panel at build time by build_game.py (HelpRenderer).
+# Edit this file to update the help overlay — no HTML required.
+#
+# sections: list of body paragraphs shown on the chalkboard.
+# footer_link: "Read more" link shown at the bottom of the panel.
+#
+# =============================================================================
+
+help:
+  sections:
+    - body: >
+        A sentence appears at the top of the chalkboard.
+        Click any word to identify its grammatical role.
+        Choose from the menu — Sr. Barbara will let you know
+        how you're doing.
+
+    - body: >
+        As words land on the diagram, a color-coded legend
+        builds on the left. Each color represents a part
+        of speech.
+
+    - body: >
+        Use the difficulty selector to choose Easy, Medium,
+        Hard, or ★ for any level. Click New Sentence to get
+        a fresh one at any time.
+
+    - body: >
+        Stuck? The Show Solution button reveals the complete
+        diagram. Sr. Barbara may have thoughts about that.
+
+  footer_link:
+    text: Read more on GitHub
+    url: https://github.com/carolynboyle/sr-barbara
