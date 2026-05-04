@@ -134,14 +134,10 @@ srb-build  = "sr_barbara_scripts.build_game:main"
 must match the new module name. After editing `pyproject.toml`, reinstall
 the package so the entry point is updated:
 
-```bash
-pip install -e scripts/ --break-system-packages
-```
-
-Or if using the project venv:
+using the project venv:
 
 ```bash
-/path/to/venv/bin/pip install -e scripts/
+/path/to/venv/bin/pip install -e .
 ```
 
 ---
