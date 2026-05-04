@@ -1,0 +1,294 @@
+======================================================================
+CHECK MODE - Dry Run Report
+======================================================================
+
+Manifest:     /home/carolyn/projects/sr-barbara/.doc-gen/manifest.yml
+Project Root: /home/carolyn/projects/sr-barbara
+Output Dir:   /home/carolyn/projects/sr-barbara/.doc-gen/output
+Total Files:  68
+
+======================================================================
+Files that would be generated:
+======================================================================
+
+✓ EXISTS
+  Source: .env.dev.example
+  Output: output/.env.dev.example.md
+
+✓ EXISTS
+  Source: .env.example
+  Output: output/.env.example.md
+
+✓ EXISTS
+  Source: .gitignore
+  Output: output/.gitignore.md
+
+✓ EXISTS
+  Source: .vscode/settings.json
+  Output: output/.vscode/settings.json.md
+
+✓ EXISTS
+  Source: Dockerfile
+  Output: output/Dockerfile.md
+
+✓ EXISTS
+  Source: LICENSE
+  Output: output/LICENSE.md
+
+✓ EXISTS
+  Source: README.md
+  Output: output/README.md.md
+
+✓ EXISTS
+  Source: adminer-start.sh
+  Output: output/adminer-start.sh.md
+
+✓ EXISTS
+  Source: adminer-stop.sh
+  Output: output/adminer-stop.sh.md
+
+✓ EXISTS
+  Source: app.py
+  Output: output/app.py.md
+
+✓ EXISTS
+  Source: data/game_config.schema.json
+  Output: output/data/game_config.schema.json.md
+
+✓ EXISTS
+  Source: data/game_config.yaml
+  Output: output/data/game_config.yaml.md
+
+✓ EXISTS
+  Source: data/queries.yaml
+  Output: output/data/queries.yaml.md
+
+✓ EXISTS
+  Source: data/sentences.schema.json
+  Output: output/data/sentences.schema.json.md
+
+✓ EXISTS
+  Source: data/sentences.yaml
+  Output: output/data/sentences.yaml.md
+
+✓ EXISTS
+  Source: db/dropall.sql
+  Output: output/db/dropall.sql.md
+
+✓ EXISTS
+  Source: db/erDiagram.mmd
+  Output: output/db/erDiagram.mmd.md
+
+✓ EXISTS
+  Source: db/reset.sql
+  Output: output/db/reset.sql.md
+
+✓ EXISTS
+  Source: db/schema.md
+  Output: output/db/schema.md.md
+
+✓ EXISTS
+  Source: db/schema.sql
+  Output: output/db/schema.sql.md
+
+✓ EXISTS
+  Source: db/seed.sql
+  Output: output/db/seed.sql.md
+
+✓ EXISTS
+  Source: db/sentences_view.sql
+  Output: output/db/sentences_view.sql.md
+
+✓ EXISTS
+  Source: db/truncate.sql
+  Output: output/db/truncate.sql.md
+
+✓ EXISTS
+  Source: docker-compose.dev.yml
+  Output: output/docker-compose.dev.yml.md
+
+✓ EXISTS
+  Source: docker-compose.yaml
+  Output: output/docker-compose.yaml.md
+
+✓ EXISTS
+  Source: docs/changedocs/game-js-pp-fix.md
+  Output: output/docs/changedocs/game-js-pp-fix.md.md
+
+✓ EXISTS
+  Source: docs/changedocs/reorganize.sh
+  Output: output/docs/changedocs/reorganize.sh.md
+
+✓ EXISTS
+  Source: docs/changedocs/sr-barbara-article-to-determiner.md
+  Output: output/docs/changedocs/sr-barbara-article-to-determiner.md.md
+
+✓ EXISTS
+  Source: docs/changedocs/sr-barbara-css-js-pos-update.md
+  Output: output/docs/changedocs/sr-barbara-css-js-pos-update.md.md
+
+✓ EXISTS
+  Source: docs/changedocs/sr-barbara-docker-changes.md
+  Output: output/docs/changedocs/sr-barbara-docker-changes.md.md
+
+✓ EXISTS
+  Source: docs/changedocs/sr-barbara-docker-scripts.md
+  Output: output/docs/changedocs/sr-barbara-docker-scripts.md.md
+
+✓ EXISTS
+  Source: docs/changedocs/sr-barbara-main-scoping-fix.md
+  Output: output/docs/changedocs/sr-barbara-main-scoping-fix.md.md
+
+✓ EXISTS
+  Source: docs/changedocs/sr-barbara-module-split.md
+  Output: output/docs/changedocs/sr-barbara-module-split.md.md
+
+✓ EXISTS
+  Source: docs/changedocs/sr-barbara-solve-btn-hide.md
+  Output: output/docs/changedocs/sr-barbara-solve-btn-hide.md.md
+
+✓ EXISTS
+  Source: docs/changedocs/sr-barbara-volume-mount.md
+  Output: output/docs/changedocs/sr-barbara-volume-mount.md.md
+
+✓ EXISTS
+  Source: docs/design/handoff-2026-04-28.md
+  Output: output/docs/design/handoff-2026-04-28.md.md
+
+✓ EXISTS
+  Source: docs/design/handoff-2026-04-30.md
+  Output: output/docs/design/handoff-2026-04-30.md.md
+
+✓ EXISTS
+  Source: docs/design/handoff-2026-05-01.md
+  Output: output/docs/design/handoff-2026-05-01.md.md
+
+✓ EXISTS
+  Source: docs/design/handoff-2026-05-03.md
+  Output: output/docs/design/handoff-2026-05-03.md.md
+
+✓ EXISTS
+  Source: docs/design/sr-barbara-game-config.md
+  Output: output/docs/design/sr-barbara-game-config.md.md
+
+✓ EXISTS
+  Source: docs/design/sr-barbara-phrase-highlight.md
+  Output: output/docs/design/sr-barbara-phrase-highlight.md.md
+
+✓ EXISTS
+  Source: docs/design/sr-barbara-schema-analysis.md
+  Output: output/docs/design/sr-barbara-schema-analysis.md.md
+
+✓ EXISTS
+  Source: docs/dev.to.md
+  Output: output/docs/dev.to.md.md
+
+✓ EXISTS
+  Source: docs/dev_submission.md
+  Output: output/docs/dev_submission.md.md
+
+✓ EXISTS
+  Source: docs/queries.md
+  Output: output/docs/queries.md.md
+
+✓ EXISTS
+  Source: docs/roadmap.md
+  Output: output/docs/roadmap.md.md
+
+✓ EXISTS
+  Source: pyproject.toml
+  Output: output/pyproject.toml.md
+
+✓ EXISTS
+  Source: scripts/src/sr_barbara_scripts/__init__.py
+  Output: output/scripts/src/sr_barbara_scripts/__init__.py.md
+
+✓ EXISTS
+  Source: scripts/src/sr_barbara_scripts/build_slingcode.py
+  Output: output/scripts/src/sr_barbara_scripts/build_slingcode.py.md
+
+✓ EXISTS
+  Source: scripts/src/sr_barbara_scripts/config.py
+  Output: output/scripts/src/sr_barbara_scripts/config.py.md
+
+✓ EXISTS
+  Source: scripts/src/sr_barbara_scripts/pg_export.py
+  Output: output/scripts/src/sr_barbara_scripts/pg_export.py.md
+
+✓ EXISTS
+  Source: scripts/src/sr_barbara_scripts.egg-info/PKG-INFO
+  Output: output/scripts/src/sr_barbara_scripts.egg-info/PKG-INFO.md
+
+✓ EXISTS
+  Source: scripts/src/sr_barbara_scripts.egg-info/SOURCES.txt
+  Output: output/scripts/src/sr_barbara_scripts.egg-info/SOURCES.txt.md
+
+✓ EXISTS
+  Source: scripts/src/sr_barbara_scripts.egg-info/dependency_links.txt
+  Output: output/scripts/src/sr_barbara_scripts.egg-info/dependency_links.txt.md
+
+✓ EXISTS
+  Source: scripts/src/sr_barbara_scripts.egg-info/entry_points.txt
+  Output: output/scripts/src/sr_barbara_scripts.egg-info/entry_points.txt.md
+
+✓ EXISTS
+  Source: scripts/src/sr_barbara_scripts.egg-info/requires.txt
+  Output: output/scripts/src/sr_barbara_scripts.egg-info/requires.txt.md
+
+✓ EXISTS
+  Source: scripts/src/sr_barbara_scripts.egg-info/top_level.txt
+  Output: output/scripts/src/sr_barbara_scripts.egg-info/top_level.txt.md
+
+✓ EXISTS
+  Source: sr_barbara.yaml
+  Output: output/sr_barbara.yaml.md
+
+✓ EXISTS
+  Source: start.sh
+  Output: output/start.sh.md
+
+✓ EXISTS
+  Source: static/css/style.css
+  Output: output/static/css/style.css.md
+
+✓ EXISTS
+  Source: static/js/config.js
+  Output: output/static/js/config.js.md
+
+✓ EXISTS
+  Source: static/js/data.js
+  Output: output/static/js/data.js.md
+
+✓ EXISTS
+  Source: static/js/layout.js
+  Output: output/static/js/layout.js.md
+
+✓ EXISTS
+  Source: static/js/main.js
+  Output: output/static/js/main.js.md
+
+✓ EXISTS
+  Source: static/js/renderer.js
+  Output: output/static/js/renderer.js.md
+
+✓ EXISTS
+  Source: static/js/ui.js
+  Output: output/static/js/ui.js.md
+
+✓ EXISTS
+  Source: stop.sh
+  Output: output/stop.sh.md
+
+✓ EXISTS
+  Source: templates/index.html
+  Output: output/templates/index.html.md
+
+======================================================================
+Summary:
+======================================================================
+Total files in manifest: 68
+Source files exist:      68
+Source files missing:    0
+
+No files were written (dry-run mode)
+======================================================================

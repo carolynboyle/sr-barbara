@@ -1,0 +1,63 @@
+# docker-compose.dev.yml
+
+**Path:** docker-compose.dev.yml
+**Syntax:** yaml
+**Generated:** 2026-05-03 16:07:45
+
+```yaml
+
+# =============================================================================
+# Sr. Barbara's Class — developer tools overlay
+# =============================================================================
+#
+# Adds hardened Adminer to the running game stack.
+#
+# Usage:
+#   docker compose -f docker-compose.yaml -f docker-compose.dev.yml up
+#
+# Requires .env.dev — copy from .env.dev.example and fill in values:
+#   cp .env.dev.example .env.dev
+#
+# Adminer login:
+#   Server:   db
+#   Username: value of DB_USER in .env
+#   Password: value of DB_PASSWORD in .env
+#   Database: value of DB_NAME in .env
+#
+# =============================================================================
+
+services:
+  adminer:
+    image: adminer:latest
+    container_name: adminer
+    restart: unless-stopped
+
+    ports:
+      - "${ADMINER_BIND_IP}:8080:8080"
+    networks:
+      - sr_barbara_net
+
+    # Filesystem hardening
+    read_only: true
+    tmpfs:
+      - /tmp:mode=1777
+
+    # Capability and privilege hardening
+    user: "${ADMINER_UID}:${ADMINER_GID}"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 256m
+          cpus: "0.5"
+
+networks:
+  sr_barbara_net:
+    external:
+      name: sr-barbara_sr_barbara_net
+```

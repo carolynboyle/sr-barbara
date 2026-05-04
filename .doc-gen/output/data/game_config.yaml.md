@@ -1,0 +1,74 @@
+# game_config.yaml
+
+**Path:** data/game_config.yaml
+**Syntax:** yaml
+**Generated:** 2026-05-03 16:07:45
+
+```yaml
+# =============================================================================
+# Sr. Barbara's Class — static game configuration
+# =============================================================================
+#
+# Visual and rendering settings. This file is hand-edited.
+#
+# NOTE: The dialogue block is a temporary home. These strings belong in
+# Postgres as a `dialogue` table, exported by srb-export alongside
+# sentences. See roadmap: "Move dialogue to Postgres."
+#
+# NOTE: character.name is present here but the HTML template currently has
+# "Sr. Barbara" hardcoded in several places. The template needs a pass to
+# use this value before it is effective. See roadmap: "HTML template
+# character.name pass."
+#
+# Validated by: data/game_config.schema.json
+# (Red Hat YAML extension in VS Code provides real-time validation.)
+#
+# =============================================================================
+
+character:
+  name: Sr. Barbara
+
+canvas:
+  width: 820
+  height: 240
+  base_y: 110
+  start_x: 30
+  margin: 24
+  font_sizes: [16, 14, 12]
+  min_font: 12
+
+dialogue:
+  praise:
+    - "Very good. I knew you had it in you."
+    - "Correct. See how the sentence reveals itself?"
+    - "That's right. Grammar is just logic with better manners."
+    - "Excellent. Sr. Barbara approves."
+    - "Good. Now keep going — the sentence won't diagram itself."
+  scold:
+    - "No. Think about what that word is *doing* in the sentence."
+    - "That is incorrect. We will try again."
+    - "Heavens, no. Look at the sentence again."
+    - "Not quite. What is that word's job here?"
+    - "No, dear. Pay attention."
+  solve: "There. Now you know what it looks like."
+  complete: "Excellent work. The sentence is fully diagrammed."
+  no_sentence: "Load a sentence first!"
+
+pos:
+  colors:
+    determiner:  "#d4a574"
+    noun:        "#c9a96e"
+    pronoun:     "#e8d5a3"
+    verb:        "#e8a5a5"
+    adjective:   "#a5c4a5"
+    adverb:      "#a5b8c4"
+    preposition: "#c4a5c4"
+  labels:
+    determiner:  "Determiner"
+    noun:        "Noun"
+    pronoun:     "Pronoun"
+    verb:        "Verb"
+    adjective:   "Adjective"
+    adverb:      "Adverb"
+    preposition: "Preposition"
+```

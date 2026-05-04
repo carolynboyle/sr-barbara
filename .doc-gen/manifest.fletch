@@ -1,14 +1,14 @@
-# Generated: 2026-05-02 20:29:07
+# Generated: 2026-05-03 16:07:56
 # Repo: https://github.com/carolynboyle/sr-barbara
 # Branch: main
 # URL type: raw
 # Version: v0.1.0
-# Files: 64
+# Files: 68
 
 repo: https://github.com/carolynboyle/sr-barbara
 branch: main
 url_type: raw
-generated: '2026-05-02 20:29:07'
+generated: '2026-05-03 16:07:56'
 version: 0.1.0
 files:
 - path: .env.dev.example
@@ -31,6 +31,10 @@ files:
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/adminer-stop.sh
 - path: app.py
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/app.py
+- path: data/game_config.schema.json
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/data/game_config.schema.json
+- path: data/game_config.yaml
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/data/game_config.yaml
 - path: data/queries.yaml
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/data/queries.yaml
 - path: data/sentences.schema.json
@@ -83,8 +87,10 @@ files:
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/design/handoff-2026-04-30.md
 - path: docs/design/handoff-2026-05-01.md
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/design/handoff-2026-05-01.md
-- path: docs/design/roadmap.md
-  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/design/roadmap.md
+- path: docs/design/handoff-2026-05-03.md
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/design/handoff-2026-05-03.md
+- path: docs/design/sr-barbara-game-config.md
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/design/sr-barbara-game-config.md
 - path: docs/design/sr-barbara-phrase-highlight.md
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/design/sr-barbara-phrase-highlight.md
 - path: docs/design/sr-barbara-schema-analysis.md
@@ -95,6 +101,8 @@ files:
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/dev_submission.md
 - path: docs/queries.md
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/queries.md
+- path: docs/roadmap.md
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/roadmap.md
 - path: pyproject.toml
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/pyproject.toml
 - path: scripts/src/sr_barbara_scripts/__init__.py

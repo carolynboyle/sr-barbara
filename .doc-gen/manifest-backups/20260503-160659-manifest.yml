@@ -1,6 +1,6 @@
-# Generated: 2026-05-03 16:06:59
+# Generated: 2026-05-02 20:28:51
 # Project: /home/carolyn/projects/sr-barbara
-# Files: 68
+# Files: 64
 
 version: 1
 documents:
@@ -14,8 +14,6 @@ documents:
 - path: adminer-start.sh
 - path: adminer-stop.sh
 - path: app.py
-- path: data/game_config.schema.json
-- path: data/game_config.yaml
 - path: data/queries.yaml
 - path: data/sentences.schema.json
 - path: data/sentences.yaml
@@ -42,14 +40,12 @@ documents:
 - path: docs/design/handoff-2026-04-28.md
 - path: docs/design/handoff-2026-04-30.md
 - path: docs/design/handoff-2026-05-01.md
-- path: docs/design/handoff-2026-05-03.md
-- path: docs/design/sr-barbara-game-config.md
+- path: docs/design/roadmap.md
 - path: docs/design/sr-barbara-phrase-highlight.md
 - path: docs/design/sr-barbara-schema-analysis.md
 - path: docs/dev.to.md
 - path: docs/dev_submission.md
 - path: docs/queries.md
-- path: docs/roadmap.md
 - path: pyproject.toml
 - path: scripts/src/sr_barbara_scripts/__init__.py
 - path: scripts/src/sr_barbara_scripts/build_slingcode.py

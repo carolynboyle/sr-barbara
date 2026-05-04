@@ -1,0 +1,62 @@
+# docker-compose.yaml
+
+**Path:** docker-compose.yaml
+**Syntax:** yaml
+**Generated:** 2026-05-03 16:07:45
+
+```yaml
+# =============================================================================
+# Sr. Barbara's Class — game stack
+# =============================================================================
+#
+# Runs the Flask app and PostgreSQL database.
+# Adminer is intentionally excluded — use docker-compose.dev.yml for that.
+#
+# First-time setup:
+#   cp .env.example .env
+#   edit .env and set a strong DB_PASSWORD
+#   docker compose up --build
+#
+# =============================================================================
+
+services:
+  db:
+    image: docker.io/postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+      - ./db/seed.sql:/docker-entrypoint-initdb.d/02-seed.sql
+      - ./db/sentences_view.sql:/docker-entrypoint-initdb.d/03-sentences_view.sql
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - sr_barbara_net
+
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      DB_HOST: db
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+    depends_on:
+      - db
+    volumes:
+      - ./static:/app/static
+      - ./templates:/app/templates
+    networks:
+      - sr_barbara_net
+volumes:
+  postgres_data:
+
+networks:
+  sr_barbara_net:
+    driver: bridge
+    
+```

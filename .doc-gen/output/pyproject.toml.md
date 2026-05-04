@@ -1,3 +1,10 @@
+# pyproject.toml
+
+**Path:** pyproject.toml
+**Syntax:** toml
+**Generated:** 2026-05-03 16:07:45
+
+```toml
 [build-system]
 requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
@@ -34,7 +41,7 @@ dependencies = [
 
 [project.scripts]
 srb-export = "sr_barbara_scripts.pg_export:main"
-srb-build  = "sr_barbara_scripts.build_game:main"
+srb-build  = "sr_barbara_scripts.build_slingcode:main"
 
 [tool.setuptools.packages.find]
 where = ["scripts/src"]
@@ -60,3 +67,5 @@ include = ["sr_barbara_scripts*"]
 #   MAJOR — breaking schema changes or complete rewrites
 #   MINOR — new sentences, new grammar support, new features
 #   PATCH — bug fixes, documentation, build system changes
+
+```

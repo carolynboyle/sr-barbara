@@ -102,14 +102,32 @@ contextual feedback and gentle guidance.
 
 ## Future Possibilities
 
-**Subordinate clause schema design** — When the time comes, the addition
-of subordinate clauses will likely require separating token-level parts of
-speech from structural diagram roles, and introducing a proper tree model
-for sentence parts. This is a meaningful refactor and should be designed
-carefully before any code is written. The analysis document tracks the
-reasoning behind the current incremental approach and what the trigger
-conditions are for the larger change.
+## Future Possibilities
 
-**OS-neutral install script** — Interactive setup that detects the
-environment and configures accordingly, reducing Docker/docker-compose
-confusion.
+**Move dialogue to Postgres** — The dialogue strings in `data/game_config.yaml`
+(`praise`, `scold`, `solve`, `complete`, `no_sentence`) are a temporary home.
+They belong in Postgres as a `dialogue` table with a `context` column, exported
+by `srb-export` alongside sentences. When done, `game_config.yaml` becomes fully
+generated rather than hand-edited, and the Postgres authoring environment covers
+all game content. Prerequisite for the broader Postgres game authoring tool.
+
+**HTML template character.name pass** — `character.name` is now in
+`game_config.yaml` and will be baked into `config.js` by the build script, but
+the HTML template currently has "Sr. Barbara" hardcoded in the page title, any
+visible character labels, and potentially CSS class names. The template needs a
+pass to use the config value before `character.name` is effective. This is a
+prerequisite for the game template pattern — a new game should only need to
+change content files, not the template HTML.
+
+**CSS split: base.css / sr-barbara.css** — The current `style.css` mixes
+game-engine styles (layout, controls, chalkboard structure) with
+character-specific styles (colors, aesthetic). For the game template pattern,
+these should be separated: `base.css` travels with the engine, and
+`sr-barbara.css` (or `boyles-lab.css`, etc.) is game-specific. Do this pass
+when the second game is started — that's when the boundary between the two
+layers will be obvious.
+
+**Subordinate clause schema design** — When the time comes...
+
+**OS-neutral install script** — Interactive setup...
+

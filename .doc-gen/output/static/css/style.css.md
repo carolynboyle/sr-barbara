@@ -1,0 +1,287 @@
+# style.css
+
+**Path:** static/css/style.css
+**Syntax:** css
+**Generated:** 2026-05-03 16:07:45
+
+```css
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Georgia, serif;
+    background-color: #f5f0e8;
+    color: #2c2c2c;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 2px solid #8b7355;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2em;
+    color: #4a3728;
+}
+
+header p {
+    color: #6b5744;
+    font-style: italic;
+}
+
+#controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#sentence-display {
+    background: white;
+    padding: 20px;
+    border: 1px solid #8b7355;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    line-height: 2;        /* room for the spans to breathe */
+}
+
+/* Chalkboard styling for the diagram area */
+#diagram-area {
+    background: #2a4a3a;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    padding: 20px;
+    border: 12px solid #5c4033;
+    border-radius: 2px;
+    min-height: 240px;
+    margin-bottom: 20px;
+    box-shadow:
+        inset 0 0 30px rgba(0,0,0,0.3),
+        0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Chalk-style lines and text in the SVG */
+#diagram-area svg line {
+    stroke: #e8e8e8;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+#diagram-area svg text {
+    fill: #f5f5f5;
+    font-family: 'Patrick Hand', Georgia, serif;
+    font-size: 16px;
+}
+
+button, select {
+    padding: 8px 16px;
+    font-family: Georgia, serif;
+    cursor: pointer;
+    background: #4a3728;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+button:hover {
+    background: #5c4733;
+}
+
+select {
+    background: white;
+    color: #2c2c2c;
+    border: 1px solid #8b7355;
+}
+
+/* -------------------------------------------------------------------------
+   Clickable word tokens in the sentence display
+   ------------------------------------------------------------------------- */
+
+.word-token {
+    display: inline-block;
+    padding: 2px 6px;
+    margin: 0 2px;
+    border-radius: 3px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.word-token:hover {
+    background: #e8dfd0;
+    border-bottom-color: #8b7355;
+}
+
+/* Already correctly identified — soft green, no longer clickable */
+.word-token.correct {
+    background: #d4edda;
+    border-bottom-color: #5a9e6f;
+    cursor: default;
+    color: #2c5f3a;
+}
+
+/* All words in the phrase being considered — warm highlight */
+.word-token.phrase-highlight {
+    background: #f0e0c0;
+    border-bottom-color: #a07840;
+}
+
+/* Just got it wrong — brief red flash, fades via JS timeout */
+.word-token.wrong {
+    background: #fde8e8;
+    border-bottom-color: #c0392b;
+}
+
+/* -------------------------------------------------------------------------
+   Part-of-speech popup
+   ------------------------------------------------------------------------- */
+
+#pos-popup {
+    background: #fffdf7;
+    border: 1px solid #8b7355;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+#popup-prompt {
+    margin-bottom: 12px;
+    font-size: 1em;
+    color: #4a3728;
+}
+
+#popup-choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+/* Choice buttons inherit the base button style but get role colors on hover */
+.pos-choice {
+    font-size: 0.9em;
+    padding: 6px 14px;
+    background: #6b5744;
+    text-transform: capitalize;
+}
+
+.pos-choice:hover {
+    background: #4a3728;
+}
+
+#popup-cancel {
+    font-size: 0.85em;
+    background: transparent;
+    color: #8b7355;
+    border: 1px solid #8b7355;
+    padding: 4px 12px;
+}
+
+#popup-cancel:hover {
+    background: #f0e8d8;
+    color: #4a3728;
+}
+
+/* -------------------------------------------------------------------------
+   Sr. Barbara feedback bar
+   ------------------------------------------------------------------------- */
+
+#sr-barbara-feedback {
+    padding: 10px 16px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    font-style: italic;
+    font-size: 0.95em;
+    border-left: 4px solid #8b7355;
+    background: #fdf6ec;
+    color: #4a3728;
+    transition: opacity 0.4s;
+}
+
+#sr-barbara-feedback.correct-feedback {
+    border-left-color: #5a9e6f;
+    background: #f0faf3;
+    color: #2c5f3a;
+}
+
+#sr-barbara-feedback.wrong-feedback {
+    border-left-color: #c0392b;
+    background: #fdf0f0;
+    color: #7a1e1e;
+}
+
+/* -------------------------------------------------------------------------
+   Shared utility
+   ------------------------------------------------------------------------- */
+
+.hidden {
+    display: none;
+}
+#diagram-wrapper {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+#diagram-area {
+    flex: 1;
+    margin-bottom: 0;   /* wrapper handles the margin now */
+}
+
+#sr-barbara {
+    width: 130px;
+    flex-shrink: 0;
+    align-self: flex-end;
+    mix-blend-mode: multiply;
+}
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#legend {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 0.85em;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+}
+
+.legend-label {
+    color: #4a3728;
+}
+/* Part of speech colors on diagram */
+#diagram-area svg text.pos-determiner  { fill: #d4a574; }
+#diagram-area svg text.pos-noun        { fill: #c9a96e; }
+#diagram-area svg text.pos-pronoun     { fill: #e8d5a3; }
+#diagram-area svg text.pos-verb        { fill: #e8a5a5; }
+#diagram-area svg text.pos-adjective   { fill: #a5c4a5; }
+#diagram-area svg text.pos-adverb      { fill: #a5b8c4; }
+#diagram-area svg text.pos-preposition { fill: #c4a5c4; }
+```

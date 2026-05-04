@@ -1,3 +1,10 @@
+# sr_barbara.yaml
+
+**Path:** sr_barbara.yaml
+**Syntax:** yaml
+**Generated:** 2026-05-03 16:07:45
+
+```yaml
 # =============================================================================
 # Sr. Barbara's Class — project configuration
 # =============================================================================
@@ -11,10 +18,9 @@
 # =============================================================================
 
 paths:
-  sentences_yaml:      data/sentences.yaml
-  sentences_schema:    data/sentences.schema.json
-  standalone_template: templates/index.standalone.html
-  build_output:        dist/sr_barbara.html
+  sentences_yaml:   data/sentences.yaml
+  sentences_schema: data/sentences.schema.json
+  build_output:     dist/sr_barbara.html
 
 database:
   env_file: .env
@@ -23,3 +29,5 @@ database:
 
 game:
   default_difficulty: medium
+
+```
