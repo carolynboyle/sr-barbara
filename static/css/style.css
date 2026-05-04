@@ -219,7 +219,7 @@ select {
    ------------------------------------------------------------------------- */
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 #diagram-wrapper {
     display: flex;
@@ -242,7 +242,7 @@ select {
 #sidebar {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
 }
 
 #legend {
@@ -277,3 +277,148 @@ select {
 #diagram-area svg text.pos-adjective   { fill: #a5c4a5; }
 #diagram-area svg text.pos-adverb      { fill: #a5b8c4; }
 #diagram-area svg text.pos-preposition { fill: #c4a5c4; }
+/* -------------------------------------------------------------------------
+   Sidebar icon bar — sits below Sr. Barbara image
+   ------------------------------------------------------------------------- */
+
+#icon-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+#update-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+#update-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.4em;
+    cursor: pointer;
+    padding: 2px;
+    line-height: 1;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+}
+
+#update-btn:hover {
+    background: transparent;
+    transform: scale(1.15);
+    transition: transform 0.15s;
+}
+
+#update-notice {
+    background: #fffdf7;
+    border: 1px solid #8b7355;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 0.8em;
+    color: #4a3728;
+    text-align: center;
+    width: 130px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+#update-notice a {
+    display: block;
+    margin-top: 6px;
+    color: #4a3728;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#update-notice a:hover {
+    color: #2c1a0e;
+}
+
+#help-btn {
+    background: #2c2c2c;
+    border: none;
+    border-radius: 50%;
+    color: #f5f0e8;
+    font-size: 1em;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+#help-btn:hover {
+    background: #4a3728;
+}
+
+/* -------------------------------------------------------------------------
+   Help overlay
+   ------------------------------------------------------------------------- */
+
+#help-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#help-panel {
+    background: #2a4a3a;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    border: 12px solid #5c4033;
+    border-radius: 2px;
+    box-shadow:
+        inset 0 0 30px rgba(0,0,0,0.3),
+        0 4px 16px rgba(0,0,0,0.4);
+    padding: 32px 40px;
+    max-width: 560px;
+    width: 90%;
+    position: relative;
+    color: #f5f5f5;
+    font-family: 'Patrick Hand', Georgia, serif;
+}
+
+#help-panel h2 {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    color: #f5f5f5;
+    text-align: center;
+    letter-spacing: 0.03em;
+}
+
+#help-panel p {
+    font-size: 1em;
+    line-height: 1.7;
+    color: #e8e8e8;
+    font-style: italic;
+    text-align: center;
+}
+
+#help-close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    background: transparent;
+    border: none;
+    color: #e8e8e8;
+    font-size: 1.4em;
+    cursor: pointer;
+    padding: 2px 6px;
+    line-height: 1;
+}
+
+#help-close:hover {
+    color: #ffffff;
+    background: transparent;
+}

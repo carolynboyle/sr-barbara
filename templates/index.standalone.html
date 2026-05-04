@@ -45,16 +45,37 @@
                 <!-- diagram will be drawn here -->
             </div>
             <div id="sidebar">
-                <div id="legend"></div>
-                <img id="sr-barbara"
-                     src="{{ IMAGE_SRC }}"
-                     alt="Sr. Barbara">
+    <div id="legend"></div>
+    <img id="sr-barbara"
+         src="{{ IMAGE_SRC }}"
+         alt="Sr. Barbara">
+    <div id="icon-bar">
+        <div id="update-indicator" class="hidden">
+            <button id="update-btn" title="Update available">💡</button>
+            <div id="update-notice" class="hidden">
+                <span>A new version is available!</span>
+                <a href="#" target="_blank" rel="noopener">Click here to download</a>
             </div>
+        </div>
+        <button id="help-btn" title="Help">❔</button>
+    </div>
+</div>
+
+
         </div>
 
         <button id="solve">Show Solution</button>
-    </main>
+           </main>
 
-    <!-- INLINE_SCRIPTS -->
-</body>
+        <!-- Help overlay -->
+        <div id="help-overlay" class="hidden">
+            <div id="help-panel">
+                <button id="help-close" title="Close">x</button>
+                <h2>How to Play</h2>
+                <p>Help goes here.</p>
+            </div>
+        </div>
+
+        <!-- INLINE_SCRIPTS -->
+    </body>
 </html>

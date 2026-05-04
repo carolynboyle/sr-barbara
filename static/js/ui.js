@@ -153,3 +153,65 @@ function checkCompletion() {
         showFeedback('Excellent work. The sentence is fully diagrammed.', 'correct-feedback');
     }
 }
+// =============================================================================
+// Additions to ui.js — append these to the bottom of the existing file.
+// Depends on: config.js (VERSION, GITHUB_REPO)
+// Uses globals: updateBtn, updateNotice, helpBtn, helpOverlay
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Update checker
+// Hits the GitHub Releases API once on page load.
+// Compares latest release tag against VERSION baked in at build time.
+// Shows the lightbulb and update notice if a newer version is available.
+// Fails silently if offline or the API is unreachable.
+// -----------------------------------------------------------------------------
+
+function checkForUpdate() {
+    // VERSION and GITHUB_REPO are injected by build_game.py
+    if (typeof VERSION === 'undefined' || typeof GITHUB_REPO === 'undefined') return;
+
+    const url = `https://api.github.com/repos/${GITHUB_REPO}/releases/latest`;
+
+    fetch(url)
+        .then(response => {
+            if (!response.ok) return;
+            return response.json();
+        })
+        .then(data => {
+            if (!data || !data.tag_name) return;
+
+            // Tag is "v0.1.1" — strip the leading v before comparing
+            const latest  = data.tag_name.replace(/^v/, '');
+            const current = VERSION;
+
+            if (isNewerVersion(latest, current)) {
+                document.getElementById('update-indicator').classList.remove('hidden');
+                updateNotice.querySelector('a').href = data.html_url;
+            }
+        })
+        .catch(() => {
+            // Offline or API unavailable — fail silently
+        });
+}
+
+function isNewerVersion(latest, current) {
+    const parse = v => v.split('.').map(Number);
+    const [lMaj, lMin, lPat] = parse(latest);
+    const [cMaj, cMin, cPat] = parse(current);
+    if (lMaj !== cMaj) return lMaj > cMaj;
+    if (lMin !== cMin) return lMin > cMin;
+    return lPat > cPat;
+}
+
+// -----------------------------------------------------------------------------
+// Help overlay
+// -----------------------------------------------------------------------------
+
+function showHelp() {
+    helpOverlay.classList.remove('hidden');
+}
+
+function hideHelp() {
+    helpOverlay.classList.add('hidden');
+}
