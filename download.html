@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sr. Barbara's Class — Download</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* -------------------------------------------------------------------------
+           CSS variables — matches game palette
+        ------------------------------------------------------------------------- */
+        :root {
+            --cream:      #f5f0e8;
+            --brown-dark: #4a3728;
+            --brown-mid:  #6b5744;
+            --brown-light:#8b7355;
+            --chalk:      #2a4a3a;
+            --chalk-line: rgba(255,255,255,0.03);
+            --border:     #5c4033;
+            --text-chalk: #f5f5f5;
+            --text-dim:   #e8e8e8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lora', Georgia, serif;
+            background-color: var(--cream);
+            color: var(--brown-dark);
+            min-height: 100vh;
+        }
+
+        /* -------------------------------------------------------------------------
+           Nav
+        ------------------------------------------------------------------------- */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 32px;
+            border-bottom: 2px solid var(--brown-light);
+            background: var(--cream);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav-logo {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--brown-dark);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--brown-mid);
+            text-decoration: none;
+            font-size: 0.95em;
+            font-style: italic;
+            transition: color 0.15s;
+        }
+
+        .nav-links a:hover {
+            color: var(--brown-dark);
+        }
+
+        /* -------------------------------------------------------------------------
+           Hero — chalkboard + Sr. Barbara
+        ------------------------------------------------------------------------- */
+        .hero {
+            max-width: 900px;
+            margin: 40px auto 0;
+            padding: 0 20px;
+        }
+
+        .chalkboard-wrapper {
+            display: flex;
+            align-items: flex-end;
+            gap: 16px;
+        }
+
+        .chalkboard {
+            flex: 1;
+            background: var(--chalk);
+            background-image:
+                linear-gradient(var(--chalk-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--chalk-line) 1px, transparent 1px);
+            background-size: 20px 20px;
+            border: 12px solid var(--border);
+            border-radius: 2px;
+            box-shadow:
+                inset 0 0 30px rgba(0,0,0,0.3),
+                0 4px 8px rgba(0,0,0,0.2);
+            padding: 36px 44px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            min-height: 260px;
+            justify-content: center;
+        }
+
+        .chalkboard-title {
+            font-family: 'Patrick Hand', Georgia, serif;
+            font-size: 2em;
+            color: var(--text-chalk);
+            text-align: center;
+            letter-spacing: 0.04em;
+        }
+
+        .chalkboard-subtitle {
+            font-family: 'Patrick Hand', Georgia, serif;
+            font-size: 1em;
+            color: var(--text-dim);
+            font-style: italic;
+            text-align: center;
+        }
+
+        .version-badge {
+            font-family: 'Patrick Hand', Georgia, serif;
+            font-size: 0.95em;
+            color: var(--text-dim);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 12px;
+            padding: 3px 14px;
+            letter-spacing: 0.05em;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 12px 32px;
+            font-family: 'Patrick Hand', Georgia, serif;
+            font-size: 1.1em;
+            color: var(--brown-dark);
+            background: var(--text-chalk);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+            transition: background 0.15s, transform 0.1s;
+        }
+
+        .download-btn:hover {
+            background: #ffffff;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .download-btn:active {
+            transform: translateY(0);
+        }
+
+        .sr-barbara {
+            width: 130px;
+            flex-shrink: 0;
+            align-self: flex-end;
+            mix-blend-mode: multiply;
+        }
+
+        /* -------------------------------------------------------------------------
+           Content sections — cream area below chalkboard
+        ------------------------------------------------------------------------- */
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        .section {
+            margin-top: 48px;
+        }
+
+        .section-heading {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--brown-dark);
+            border-bottom: 2px solid var(--brown-light);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* Release notes */
+        .release-notes {
+            font-size: 1em;
+            line-height: 1.8;
+            color: var(--brown-mid);
+            font-style: italic;
+        }
+
+        .release-notes-loading {
+            color: var(--brown-light);
+            font-style: italic;
+        }
+
+        /* Resources */
+        .resources-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .resources-list li {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .resources-list a {
+            font-weight: 600;
+            color: var(--brown-dark);
+            text-decoration: none;
+            font-size: 1em;
+            transition: color 0.15s;
+        }
+
+        .resources-list a:hover {
+            color: var(--brown-mid);
+            text-decoration: underline;
+        }
+
+        .resources-list .resource-desc {
+            font-size: 0.9em;
+            color: var(--brown-mid);
+            font-style: italic;
+        }
+
+        /* -------------------------------------------------------------------------
+           Footer
+        ------------------------------------------------------------------------- */
+        footer {
+            border-top: 2px solid var(--brown-light);
+            padding: 20px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.85em;
+            color: var(--brown-mid);
+            font-style: italic;
+        }
+
+        footer a {
+            color: var(--brown-dark);
+            text-decoration: underline;
+        }
+
+        footer a:hover {
+            color: var(--brown-mid);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav>
+        <a class="nav-logo" href="#">Sr. Barbara's Class</a>
+        <ul class="nav-links">
+            <li><a href="#" id="nav-play">Play ↓</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+            <li><a href="https://github.com/carolynboyle/sr-barbara" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="chalkboard-wrapper">
+            <div class="chalkboard">
+                <div class="chalkboard-title">Sr. Barbara's Class</div>
+                <div class="chalkboard-subtitle">Reed-Kellogg Sentence Diagramming</div>
+                <div class="version-badge" id="version-badge">loading...</div>
+                <a class="download-btn" id="download-btn" href="#">
+                    Download sr_barbara.html
+                </a>
+            </div>
+            <img class="sr-barbara"
+                 src="https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/static/images/sr_barbara.png"
+                 alt="Sr. Barbara">
+        </div>
+    </section>
+
+    <!-- Content -->
+    <div class="content">
+
+        <!-- What's New -->
+        <div class="section">
+            <div class="section-heading">What's New</div>
+            <div class="release-notes" id="release-notes">
+                <span class="release-notes-loading">Loading release notes…</span>
+            </div>
+        </div>
+
+        <!-- Further Reading -->
+        <div class="section">
+            <div class="section-heading">Further Reading</div>
+            <ul class="resources-list">
+                <li>
+                    <a href="https://owl.purdue.edu/owl/general_writing/grammar/index.html"
+                       target="_blank" rel="noopener">Purdue OWL — Grammar</a>
+                    <span class="resource-desc">The gold standard for grammar reference. Clear, comprehensive, and free.</span>
+                </li>
+                <li>
+                    <a href="https://www.quickanddirtytips.com/grammar-girl/"
+                       target="_blank" rel="noopener">Grammar Girl</a>
+                    <span class="resource-desc">Short, friendly tips on grammar and usage. Sr. Barbara grudgingly approves.</span>
+                </li>
+                <li>
+                    <a href="https://en.wikipedia.org/wiki/Reed%E2%80%93Kellogg_sentence_diagram"
+                       target="_blank" rel="noopener">Reed-Kellogg Sentence Diagram — Wikipedia</a>
+                    <span class="resource-desc">History and structure of the diagramming system this game is based on.</span>
+                </li>
+                <li>
+                    <a href="https://www.sentencevizu.com/"
+                       target="_blank" rel="noopener">SentenceVizu</a>
+                    <span class="resource-desc">Free interactive Reed-Kellogg diagramming tool — type any sentence and watch it diagram itself.</span>
+                </li>
+                <li>
+                    <a href="https://www.drawio.com/blog/sentence-trees"
+                       target="_blank" rel="noopener">draw.io — Sentence Trees and Reed-Kellogg Diagrams</a>
+                    <span class="resource-desc">Great explanation of garden-path sentences using both parse trees and Reed-Kellogg diagrams.</span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <span>Sr. Barbara's Class</span>
+        <span><a href="signup.html">Join the community →</a></span>
+    </footer>
+
+    <script>
+        // -------------------------------------------------------------------------
+        // Fetch latest release from GitHub API
+        // Populates: version badge, download button href, release notes
+        // Fails silently — static content remains readable if API is unavailable
+        // -------------------------------------------------------------------------
+        const REPO = 'carolynboyle/sr-barbara';
+        const API_URL = `https://api.github.com/repos/${REPO}/releases/latest`;
+
+        async function loadRelease() {
+            try {
+                const resp = await fetch(API_URL);
+                if (!resp.ok) return;
+                const data = await resp.json();
+
+                const version = data.tag_name || '';
+                const body    = data.body    || '';
+
+                // Version badge
+                const badge = document.getElementById('version-badge');
+                if (badge && version) badge.textContent = version;
+
+                // Download button — construct direct asset URL
+                const btn = document.getElementById('download-btn');
+                if (btn && version) {
+                    btn.href = `https://github.com/${REPO}/releases/download/${version}/sr_barbara.html`;
+                }
+
+                // Nav play link — same direct asset URL
+                const navPlay = document.getElementById('nav-play');
+                if (navPlay && version) {
+                    navPlay.href = `https://github.com/${REPO}/releases/download/${version}/sr_barbara.html`;
+                    navPlay.textContent = 'Play ↓';
+                }
+
+                // Release notes
+                const notes = document.getElementById('release-notes');
+                if (notes && body) {
+                    // Render as plain paragraphs — split on double newline
+                    notes.innerHTML = body
+                        .split(/\n\n+/)
+                        .filter(p => p.trim())
+                        .map(p => `<p>${p.trim().replace(/\n/g, ' ')}</p>`)
+                        .join('\n');
+                } else if (notes) {
+                    notes.innerHTML = '<p>See the <a href="https://github.com/' + REPO + '/releases">GitHub releases page</a> for full release notes.</p>';
+                }
+
+            } catch (e) {
+                // API unavailable — leave loading state, page is still usable
+                const badge = document.getElementById('version-badge');
+                if (badge) badge.textContent = 'latest';
+                const btn = document.getElementById('download-btn');
+                if (btn) btn.href = `https://github.com/${REPO}/releases/latest`;
+                const notes = document.getElementById('release-notes');
+                if (notes) notes.innerHTML = '<p>See the <a href="https://github.com/' + REPO + '/releases">GitHub releases page</a> for release notes.</p>';
+            }
+        }
+
+        loadRelease();
+    </script>
+
+</body>
+</html>
