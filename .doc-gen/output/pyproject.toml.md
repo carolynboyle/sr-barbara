@@ -2,7 +2,7 @@
 
 **Path:** pyproject.toml
 **Syntax:** toml
-**Generated:** 2026-05-03 16:07:45
+**Generated:** 2026-05-03 21:07:47
 
 ```toml
 [build-system]
@@ -26,7 +26,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sr_barbara_scripts"
-version = "0.1.0"
+version = "0.1.1"
 description = "Developer scripts for Sr. Barbara's Class"
 authors = [
     { name = "Carolyn Boyle" }
@@ -41,7 +41,7 @@ dependencies = [
 
 [project.scripts]
 srb-export = "sr_barbara_scripts.pg_export:main"
-srb-build  = "sr_barbara_scripts.build_slingcode:main"
+srb-build  = "sr_barbara_scripts.build_game:main"
 
 [tool.setuptools.packages.find]
 where = ["scripts/src"]

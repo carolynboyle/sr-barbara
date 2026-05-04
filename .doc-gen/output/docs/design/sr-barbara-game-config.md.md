@@ -2,7 +2,7 @@
 
 **Path:** docs/design/sr-barbara-game-config.md
 **Syntax:** markdown
-**Generated:** 2026-05-03 16:07:45
+**Generated:** 2026-05-03 21:07:47
 
 ```markdown
 # Sr. Barbara's Class — Changeset: game_config.yaml

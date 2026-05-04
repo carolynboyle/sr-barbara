@@ -2,7 +2,7 @@
 
 **Path:** docs/design/sr-barbara-schema-analysis.md
 **Syntax:** markdown
-**Generated:** 2026-05-03 16:07:45
+**Generated:** 2026-05-03 21:07:47
 
 ```markdown
 # Sr. Barbara's Class — Schema & Diagramming Analysis

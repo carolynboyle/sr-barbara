@@ -2,7 +2,7 @@
 
 **Path:** db/erDiagram.mmd
 **Syntax:** text
-**Generated:** 2026-05-03 16:07:45
+**Generated:** 2026-05-03 21:07:46
 
 ```
 erDiagram

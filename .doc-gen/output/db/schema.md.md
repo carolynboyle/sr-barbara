@@ -2,7 +2,7 @@
 
 **Path:** db/schema.md
 **Syntax:** markdown
-**Generated:** 2026-05-03 16:07:45
+**Generated:** 2026-05-03 21:07:46
 
 ```markdown
 # Sr. Barbara's Class - Database Schema

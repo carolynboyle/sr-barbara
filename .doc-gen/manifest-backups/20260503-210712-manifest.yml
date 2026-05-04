@@ -1,12 +1,11 @@
-# Generated: 2026-05-03 21:07:12
+# Generated: 2026-05-03 16:06:59
 # Project: /home/carolyn/projects/sr-barbara
-# Files: 75
+# Files: 68
 
 version: 1
 documents:
 - path: .env.dev.example
 - path: .env.example
-- path: .github/workflows/release.yml
 - path: .gitignore
 - path: .vscode/settings.json
 - path: Dockerfile
@@ -28,13 +27,11 @@ documents:
 - path: db/seed.sql
 - path: db/sentences_view.sql
 - path: db/truncate.sql
-- path: dist/sr_barbara.html
 - path: docker-compose.dev.yml
 - path: docker-compose.yaml
 - path: docs/changedocs/game-js-pp-fix.md
 - path: docs/changedocs/reorganize.sh
 - path: docs/changedocs/sr-barbara-article-to-determiner.md
-- path: docs/changedocs/sr-barbara-build-game.md
 - path: docs/changedocs/sr-barbara-css-js-pos-update.md
 - path: docs/changedocs/sr-barbara-docker-changes.md
 - path: docs/changedocs/sr-barbara-docker-scripts.md
@@ -46,19 +43,16 @@ documents:
 - path: docs/design/handoff-2026-04-30.md
 - path: docs/design/handoff-2026-05-01.md
 - path: docs/design/handoff-2026-05-03.md
-- path: docs/design/handoff-2026-05-03b.md
 - path: docs/design/sr-barbara-game-config.md
 - path: docs/design/sr-barbara-phrase-highlight.md
-- path: docs/design/sr-barbara-release-workflow.md
 - path: docs/design/sr-barbara-schema-analysis.md
-- path: docs/design/sr-barbara-update-checker.md
 - path: docs/dev.to.md
 - path: docs/dev_submission.md
 - path: docs/queries.md
 - path: docs/roadmap.md
 - path: pyproject.toml
 - path: scripts/src/sr_barbara_scripts/__init__.py
-- path: scripts/src/sr_barbara_scripts/build_game.py
+- path: scripts/src/sr_barbara_scripts/build_slingcode.py
 - path: scripts/src/sr_barbara_scripts/config.py
 - path: scripts/src/sr_barbara_scripts/pg_export.py
 - path: scripts/src/sr_barbara_scripts.egg-info/PKG-INFO
@@ -78,4 +72,3 @@ documents:
 - path: static/js/ui.js
 - path: stop.sh
 - path: templates/index.html
-- path: templates/index.standalone.html

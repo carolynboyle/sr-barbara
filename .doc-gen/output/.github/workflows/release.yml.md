@@ -1,0 +1,75 @@
+# release.yml
+
+**Path:** .github/workflows/release.yml
+**Syntax:** yaml
+**Generated:** 2026-05-03 21:07:46
+
+```yaml
+# =============================================================================
+# Sr. Barbara's Class — Release workflow
+#
+# Triggered by: push to main that changes pyproject.toml
+# (A version bump in pyproject.toml is the release signal.)
+#
+# What it does:
+#   1. Check out the repo
+#   2. Install Python and the sr_barbara_scripts package
+#   3. Run srb-build to produce dist/sr_barbara.html
+#   4. Read the version from pyproject.toml
+#   5. Create a GitHub Release tagged v{version} with sr_barbara.html
+#      as the release asset
+# =============================================================================
+
+name: Build and Release
+
+on:
+  push:
+    branches: [main]
+    paths: [pyproject.toml]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install sr_barbara_scripts
+        run: pip install -e .
+
+      - name: Build sr_barbara.html
+        run: srb-build
+
+      - name: Read version from pyproject.toml
+        id: version
+        run: |
+          VERSION=$(python -c "
+          import tomllib
+          with open('pyproject.toml', 'rb') as f:
+              data = tomllib.load(f)
+          print(data['project']['version'])
+          ")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          name: Sr. Barbara's Class v${{ steps.version.outputs.version }}
+          body: |
+            Single-file build of Sr. Barbara's Class.
+
+            Download `sr_barbara.html` and open it in any browser — no installation required.
+          files: dist/sr_barbara.html
+          fail_on_unmatched_files: true
+
+```

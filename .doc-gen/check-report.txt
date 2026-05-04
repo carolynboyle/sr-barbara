@@ -5,7 +5,7 @@ CHECK MODE - Dry Run Report
 Manifest:     /home/carolyn/projects/sr-barbara/.doc-gen/manifest.yml
 Project Root: /home/carolyn/projects/sr-barbara
 Output Dir:   /home/carolyn/projects/sr-barbara/.doc-gen/output
-Total Files:  68
+Total Files:  75
 
 ======================================================================
 Files that would be generated:
@@ -18,6 +18,10 @@ Files that would be generated:
 ✓ EXISTS
   Source: .env.example
   Output: output/.env.example.md
+
+✓ EXISTS
+  Source: .github/workflows/release.yml
+  Output: output/.github/workflows/release.yml.md
 
 ✓ EXISTS
   Source: .gitignore
@@ -104,6 +108,10 @@ Files that would be generated:
   Output: output/db/truncate.sql.md
 
 ✓ EXISTS
+  Source: dist/sr_barbara.html
+  Output: output/dist/sr_barbara.html.md
+
+✓ EXISTS
   Source: docker-compose.dev.yml
   Output: output/docker-compose.dev.yml.md
 
@@ -122,6 +130,10 @@ Files that would be generated:
 ✓ EXISTS
   Source: docs/changedocs/sr-barbara-article-to-determiner.md
   Output: output/docs/changedocs/sr-barbara-article-to-determiner.md.md
+
+✓ EXISTS
+  Source: docs/changedocs/sr-barbara-build-game.md
+  Output: output/docs/changedocs/sr-barbara-build-game.md.md
 
 ✓ EXISTS
   Source: docs/changedocs/sr-barbara-css-js-pos-update.md
@@ -168,6 +180,10 @@ Files that would be generated:
   Output: output/docs/design/handoff-2026-05-03.md.md
 
 ✓ EXISTS
+  Source: docs/design/handoff-2026-05-03b.md
+  Output: output/docs/design/handoff-2026-05-03b.md.md
+
+✓ EXISTS
   Source: docs/design/sr-barbara-game-config.md
   Output: output/docs/design/sr-barbara-game-config.md.md
 
@@ -176,8 +192,16 @@ Files that would be generated:
   Output: output/docs/design/sr-barbara-phrase-highlight.md.md
 
 ✓ EXISTS
+  Source: docs/design/sr-barbara-release-workflow.md
+  Output: output/docs/design/sr-barbara-release-workflow.md.md
+
+✓ EXISTS
   Source: docs/design/sr-barbara-schema-analysis.md
   Output: output/docs/design/sr-barbara-schema-analysis.md.md
+
+✓ EXISTS
+  Source: docs/design/sr-barbara-update-checker.md
+  Output: output/docs/design/sr-barbara-update-checker.md.md
 
 ✓ EXISTS
   Source: docs/dev.to.md
@@ -204,8 +228,8 @@ Files that would be generated:
   Output: output/scripts/src/sr_barbara_scripts/__init__.py.md
 
 ✓ EXISTS
-  Source: scripts/src/sr_barbara_scripts/build_slingcode.py
-  Output: output/scripts/src/sr_barbara_scripts/build_slingcode.py.md
+  Source: scripts/src/sr_barbara_scripts/build_game.py
+  Output: output/scripts/src/sr_barbara_scripts/build_game.py.md
 
 ✓ EXISTS
   Source: scripts/src/sr_barbara_scripts/config.py
@@ -283,11 +307,15 @@ Files that would be generated:
   Source: templates/index.html
   Output: output/templates/index.html.md
 
+✓ EXISTS
+  Source: templates/index.standalone.html
+  Output: output/templates/index.standalone.html.md
+
 ======================================================================
 Summary:
 ======================================================================
-Total files in manifest: 68
-Source files exist:      68
+Total files in manifest: 75
+Source files exist:      75
 Source files missing:    0
 
 No files were written (dry-run mode)

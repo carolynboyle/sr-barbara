@@ -1,6 +1,6 @@
-# index.html
+# index.standalone.html
 
-**Path:** templates/index.html
+**Path:** templates/index.standalone.html
 **Syntax:** html
 **Generated:** 2026-05-03 21:07:47
 
@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sr. Barbara's Class</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- INLINE_CSS -->
 </head>
 <body>
     <header>
@@ -51,10 +51,10 @@
             <div id="diagram-area">
                 <!-- diagram will be drawn here -->
             </div>
-           <div id="sidebar">
+            <div id="sidebar">
     <div id="legend"></div>
     <img id="sr-barbara"
-         src="{{ url_for('static', filename='images/sr_barbara.png') }}"
+         src="{{ IMAGE_SRC }}"
          alt="Sr. Barbara">
     <div id="icon-bar">
         <div id="update-indicator" class="hidden">
@@ -68,25 +68,23 @@
     </div>
 </div>
 
-<!-- Help overlay -->
-<div id="help-overlay" class="hidden">
-    <div id="help-panel">
-        <button id="help-close" title="Close">✕</button>
-        <h2>How to Play</h2>
-        <p>Help goes here.</p>
-    </div>
-</div>
+
         </div>
 
         <button id="solve" class="hidden">Show Solution</button>
-    </main>
+           </main>
 
-    <script src="{{ url_for('static', filename='js/config.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/layout.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/renderer.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/ui.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/data.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-</body>
+        <!-- Help overlay -->
+        <div id="help-overlay" class="hidden">
+            <div id="help-panel">
+                <button id="help-close" title="Close">x</button>
+                <h2>How to Play</h2>
+                <p>Help goes here.</p>
+            </div>
+        </div>
+
+        <!-- INLINE_SCRIPTS -->
+    </body>
 </html>
+
 ```

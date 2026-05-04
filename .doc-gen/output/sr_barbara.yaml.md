@@ -2,7 +2,7 @@
 
 **Path:** sr_barbara.yaml
 **Syntax:** yaml
-**Generated:** 2026-05-03 16:07:45
+**Generated:** 2026-05-03 21:07:47
 
 ```yaml
 # =============================================================================
@@ -18,9 +18,10 @@
 # =============================================================================
 
 paths:
-  sentences_yaml:   data/sentences.yaml
-  sentences_schema: data/sentences.schema.json
-  build_output:     dist/sr_barbara.html
+  sentences_yaml:      data/sentences.yaml
+  sentences_schema:    data/sentences.schema.json
+  standalone_template: templates/index.standalone.html
+  build_output:        dist/sr_barbara.html
 
 database:
   env_file: .env

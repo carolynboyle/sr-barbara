@@ -2,7 +2,7 @@
 
 **Path:** scripts/src/sr_barbara_scripts/pg_export.py
 **Syntax:** python
-**Generated:** 2026-05-03 16:07:45
+**Generated:** 2026-05-03 21:07:47
 
 ```python
 # =============================================================================

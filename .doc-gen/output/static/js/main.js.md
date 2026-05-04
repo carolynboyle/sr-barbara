@@ -2,7 +2,7 @@
 
 **Path:** static/js/main.js
 **Syntax:** javascript
-**Generated:** 2026-05-03 16:07:45
+**Generated:** 2026-05-03 21:07:47
 
 ```javascript
 // =============================================================================
@@ -28,6 +28,11 @@ let popupCancel      = null;
 let feedbackBar      = null;
 let feedbackText     = null;
 let legend           = null;
+
+let updateBtn        = null;
+let updateNotice     = null;
+let helpBtn          = null;
+let helpOverlay      = null;
 
 // -----------------------------------------------------------------------------
 // App state — globals shared across all modules
@@ -90,9 +95,12 @@ function handleChoice(chosen_role, token) {
 }
 
 // -----------------------------------------------------------------------------
-// DOMContentLoaded — assign DOM refs and wire events once DOM is ready
+// init — assign DOM refs and wire events.
+// Called directly if DOM is already ready (standalone build),
+// or via DOMContentLoaded if the script loads before the DOM is parsed
+// (Flask-served build).
 // -----------------------------------------------------------------------------
-document.addEventListener('DOMContentLoaded', () => {
+function init() {
 
     sentenceDisplay  = document.getElementById('sentence-text');
     newSentenceBtn   = document.getElementById('new-sentence');
@@ -108,6 +116,11 @@ document.addEventListener('DOMContentLoaded', () => {
     feedbackBar      = document.getElementById('sr-barbara-feedback');
     feedbackText     = document.getElementById('feedback-text');
     legend           = document.getElementById('legend');
+
+    updateBtn        = document.getElementById('update-btn');
+    updateNotice     = document.getElementById('update-notice');
+    helpBtn          = document.getElementById('help-btn');
+    helpOverlay      = document.getElementById('help-overlay');
 
     popupCancel.addEventListener('click', hidePopup);
 
@@ -130,7 +143,31 @@ document.addEventListener('DOMContentLoaded', () => {
         showFeedback('There. Now you know what it looks like.', 'correct-feedback');
     });
 
+    updateBtn.addEventListener('click', () => {
+        updateNotice.classList.toggle('hidden');
+    });
+
+    helpBtn.addEventListener('click', showHelp);
+
+    document.getElementById('help-close').addEventListener('click', hideHelp);
+
+    // Clicking the dimmed backdrop closes the overlay
+    helpOverlay.addEventListener('click', (e) => {
+        if (e.target === helpOverlay) hideHelp();
+    });
+
     newSentenceBtn.addEventListener('click', fetchSentence);
     difficultySelect.addEventListener('change', fetchSentence);
-});
+
+    checkForUpdate();
+}
+
+// -----------------------------------------------------------------------------
+// Bootstrap — works for both Flask-served and standalone builds
+// -----------------------------------------------------------------------------
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}
 ```

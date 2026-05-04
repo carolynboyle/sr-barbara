@@ -1,20 +1,22 @@
-# Generated: 2026-05-03 16:07:56
+# Generated: 2026-05-04 08:51:09
 # Repo: https://github.com/carolynboyle/sr-barbara
 # Branch: main
 # URL type: raw
-# Version: v0.1.0
-# Files: 68
+# Version: v0.1.1
+# Files: 75
 
 repo: https://github.com/carolynboyle/sr-barbara
 branch: main
 url_type: raw
-generated: '2026-05-03 16:07:56'
-version: 0.1.0
+generated: '2026-05-04 08:51:09'
+version: 0.1.1
 files:
 - path: .env.dev.example
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/.env.dev.example
 - path: .env.example
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/.env.example
+- path: .github/workflows/release.yml
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/.github/workflows/release.yml
 - path: .gitignore
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/.gitignore
 - path: .vscode/settings.json
@@ -57,6 +59,8 @@ files:
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/db/sentences_view.sql
 - path: db/truncate.sql
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/db/truncate.sql
+- path: dist/sr_barbara.html
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/dist/sr_barbara.html
 - path: docker-compose.dev.yml
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docker-compose.dev.yml
 - path: docker-compose.yaml
@@ -67,6 +71,8 @@ files:
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/changedocs/reorganize.sh
 - path: docs/changedocs/sr-barbara-article-to-determiner.md
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/changedocs/sr-barbara-article-to-determiner.md
+- path: docs/changedocs/sr-barbara-build-game.md
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/changedocs/sr-barbara-build-game.md
 - path: docs/changedocs/sr-barbara-css-js-pos-update.md
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/changedocs/sr-barbara-css-js-pos-update.md
 - path: docs/changedocs/sr-barbara-docker-changes.md
@@ -89,12 +95,18 @@ files:
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/design/handoff-2026-05-01.md
 - path: docs/design/handoff-2026-05-03.md
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/design/handoff-2026-05-03.md
+- path: docs/design/handoff-2026-05-03b.md
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/design/handoff-2026-05-03b.md
 - path: docs/design/sr-barbara-game-config.md
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/design/sr-barbara-game-config.md
 - path: docs/design/sr-barbara-phrase-highlight.md
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/design/sr-barbara-phrase-highlight.md
+- path: docs/design/sr-barbara-release-workflow.md
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/design/sr-barbara-release-workflow.md
 - path: docs/design/sr-barbara-schema-analysis.md
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/design/sr-barbara-schema-analysis.md
+- path: docs/design/sr-barbara-update-checker.md
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/design/sr-barbara-update-checker.md
 - path: docs/dev.to.md
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/docs/dev.to.md
 - path: docs/dev_submission.md
@@ -107,8 +119,8 @@ files:
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/pyproject.toml
 - path: scripts/src/sr_barbara_scripts/__init__.py
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/scripts/src/sr_barbara_scripts/__init__.py
-- path: scripts/src/sr_barbara_scripts/build_slingcode.py
-  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/scripts/src/sr_barbara_scripts/build_slingcode.py
+- path: scripts/src/sr_barbara_scripts/build_game.py
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/scripts/src/sr_barbara_scripts/build_game.py
 - path: scripts/src/sr_barbara_scripts/config.py
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/scripts/src/sr_barbara_scripts/config.py
 - path: scripts/src/sr_barbara_scripts/pg_export.py
@@ -147,3 +159,5 @@ files:
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/stop.sh
 - path: templates/index.html
   url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/templates/index.html
+- path: templates/index.standalone.html
+  url: https://raw.githubusercontent.com/carolynboyle/sr-barbara/main/templates/index.standalone.html

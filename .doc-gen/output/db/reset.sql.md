@@ -2,7 +2,7 @@
 
 **Path:** db/reset.sql
 **Syntax:** sql
-**Generated:** 2026-05-03 16:07:45
+**Generated:** 2026-05-03 21:07:46
 
 ```sql
 -- Sr. Barbara's Class — reset.sql
