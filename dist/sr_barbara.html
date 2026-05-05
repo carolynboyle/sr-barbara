@@ -514,7 +514,7 @@ select {
                 <button id="help-close" title="Close">x</button>
                 <h2>How to Play</h2>
                 <p>A sentence appears at the top of the chalkboard. Click any word to identify its grammatical role. Choose from the menu — Sr. Barbara will let you know how you're doing.</p>
-<p>As words land on the diagram, a color-coded legend builds on the left. Each color represents a part of speech.</p>
+<p>As words land on the diagram, a color-coded legend is built. Each color represents a part of speech.</p>
 <p>Use the difficulty selector to choose Easy, Medium, Hard, or ★ for any level. Click New Sentence to get a fresh one at any time.</p>
 <p>Stuck? The Show Solution button reveals the complete diagram. Sr. Barbara may have thoughts about that.</p>
 <p class="help-footer"><a href="https://carolynboyle.github.io/sr-barbara/" target="_blank" rel="noopener">Read more on Sr. Barbara's website</a></p>
@@ -526,10 +526,13 @@ select {
 // Source of truth: data/game_config.yaml and pyproject.toml
 
 // Build version — used by the update checker
-const VERSION = "0.1.3";
+const VERSION = "0.1.4";
 
 // GitHub repo — used by the update checker
 const GITHUB_REPO = "carolynboyle/sr-barbara";
+
+// Site URL — used by the update checker
+const SITE_URL = "https://carolynboyle.github.io/sr-barbara/";
 
 // Canvas dimensions
 const W        = 820;
@@ -940,7 +943,7 @@ function checkForUpdate() {
 
             if (isNewerVersion(latest, current)) {
                 document.getElementById('update-indicator').classList.remove('hidden');
-                updateNotice.querySelector('a').href = data.html_url;
+                updateNotice.querySelector('a').href = SITE_URL;
             }
         })
         .catch(() => {

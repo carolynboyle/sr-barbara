@@ -24,3 +24,6 @@ database:
 
 game:
   default_difficulty: medium
+
+site:
+  url: https://carolynboyle.github.io/sr-barbara/

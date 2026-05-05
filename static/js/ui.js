@@ -187,7 +187,7 @@ function checkForUpdate() {
 
             if (isNewerVersion(latest, current)) {
                 document.getElementById('update-indicator').classList.remove('hidden');
-                updateNotice.querySelector('a').href = data.html_url;
+                updateNotice.querySelector('a').href = SITE_URL;
             }
         })
         .catch(() => {

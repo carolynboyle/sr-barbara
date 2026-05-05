@@ -1,3 +1,7 @@
+"""
+Loads and exposes project configuration for Sr. Barbara's Class pipeline scripts.
+Reads sr_barbara.yaml, data/queries.yaml, and pyproject.toml.
+"""
 # =============================================================================
 # Sr. Barbara's Class — config.py
 # Loads and exposes all project configuration for pipeline scripts.
@@ -49,6 +53,11 @@ class ProjectConfig:
     def game(self) -> dict:
         """Game defaults block from sr_barbara.yaml."""
         return self._config['game']
+
+    @property
+    def site(self) -> dict:
+        """Site block from sr_barbara.yaml."""
+        return self._config['site']
 
     @property
     def queries(self) -> dict:

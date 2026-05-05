@@ -19,9 +19,8 @@ help:
         how you're doing.
 
     - body: >
-        As words land on the diagram, a color-coded legend
-        builds on the left. Each color represents a part
-        of speech.
+        As words land on the diagram, a color-coded legend is built.
+        Each color represents a part of speech.
 
     - body: >
         Use the difficulty selector to choose Easy, Medium,
