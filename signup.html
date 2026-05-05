@@ -196,11 +196,16 @@
     <!-- Form -->
     <div class="form-wrapper">
         <div class="form-card">
+            <div id="form-loading" style="text-align:center; padding: 48px; font-family: 'Lora', Georgia, serif; font-style: italic; color: #8b7355;">
+                Loading form…
+            </div>
             <iframe
                 class="airtable-embed"
                 src="https://airtable.com/embed/applzS3a7LWOYPQJW/pagXVtv4GfinIGuHD/form"
                 height="500"
-                title="Stay in Touch — Sr. Barbara's Class">
+                title="Stay in Touch — Sr. Barbara's Class"
+                style="display:none;"
+                onload="document.getElementById('form-loading').style.display='none'; this.style.display='block';">
             </iframe>
         </div>
     </div>
